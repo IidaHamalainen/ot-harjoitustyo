@@ -1,0 +1,23 @@
+
+iida@iida-UX305FA:~/Documents/Koulu/tiedostoja$ git log --stat | cat
+commit 0d64bc010c27594565d92d1fda4c0f42288136e2
+Author: Iida Hämäläinen <iida.t.hamalainen@gmail.com>
+Date:   Mon Mar 11 17:27:24 2019 +0200
+
+    muutokset
+
+ file2           | 0
+ file1 => file22 | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit fa68128649798f03dc20b157ee98038a62bd270a
+Author: Iida Hämäläinen <iida.t.hamalainen@gmail.com>
+Date:   Mon Mar 11 17:21:48 2019 +0200
+
+    tiedostojen luonti
+
+ file1 | 0
+ file2 | 0
+ file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
