@@ -21,3 +21,4 @@ Date:   Mon Mar 11 17:21:48 2019 +0200
  file3 | 0
  3 files changed, 0 insertions(+), 0 deletions(-)
 
+lisätään rivi loppuun
