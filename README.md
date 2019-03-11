@@ -7,3 +7,5 @@ Tämä on **ohjelmistekniikka**-kurssin ensimmäisen viikon tehtävien *read me*
 [komentorivi] (https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
 lisätään rivi omalta koneelta
+
+lisätään taas rivi, mutta ei pushata
