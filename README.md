@@ -2,9 +2,9 @@
 Tämä on **ohjelmistekniikka**-kurssin ensimmäisen viikon tehtävien *read me*
 
 
-[gitlog.txt] (http://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+[gitlog.txt](http://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
-[komentorivi] (http://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+[komentorivi.txt](http://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
 lisätään rivi omalta koneelta
 
