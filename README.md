@@ -9,3 +9,5 @@ Tämä on **ohjelmistekniikka**-kurssin ensimmäisen viikon tehtävien *read me*
 lisätään rivi omalta koneelta
 
 lisätään taas rivi, mutta ei pushata
+
+testi pulliin
