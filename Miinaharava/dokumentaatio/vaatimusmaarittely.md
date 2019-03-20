@@ -1,6 +1,6 @@
 # Vaatimusmäärittely
 
-## Soveluksen tarkoitus
+## Sovelluksen tarkoitus
 Sovellus on miinaharava-tyyppinen peli, jossa pelaaja klikkaamalla ruutuja yrittää selviytyä kentästä osumatta pommiin. 
 Jos klikatussa ruudussa ei ole pommia, ruutu merkitään avatuksi ja ruudun ympärillä olevissa ruuduissa näytetään, 
 kuinka monessa ympäröivässä ruudussa on pommi. Jos pelaaja klikkaa ruutua jonka alta paljastuu pommi, peli päättyy. 
@@ -9,7 +9,7 @@ Pelin voittaakseen pelaajan on avattava kaikki ne ruudut, joissa ei ole pommia.
 ## Käyttöliittymä
 Pelissä on graafinen käyttöliittymä. 
 
-## Perusversion tarjoama toiminnallisuus
+## Perusversion tarjoamat toiminnallisuudet
 #### Valikko
 * Sovelluksen käynnistyessä näytetään valikko, jonka toiminnot ovat "Aloita peli" joka käynnistää pelin, 
   ja "Lopeta", mikä sulkee sovelluksen. 
