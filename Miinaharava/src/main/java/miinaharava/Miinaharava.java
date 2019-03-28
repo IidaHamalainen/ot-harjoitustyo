@@ -10,7 +10,7 @@ public class Miinaharava {
     public Miinaharava(int width, int height) {
         this.table = new int[width][height];
     }
-    public void randomBombs() {
+    public void randomMines() {
         Random random = new Random();
         
         //todo: selvitä miten saat tietyn määrän 

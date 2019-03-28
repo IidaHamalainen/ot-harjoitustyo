@@ -57,7 +57,8 @@ public class MiinaharavaSovellus extends Application {
         
         
         Scene gameview = new Scene(root);
-        
+        //Miinaharava sweeper = new Miinaharava(400,500);
+        //sweeper.randomMines();
         
         //Aloita button
         startButton.setOnAction((event) -> {
