@@ -1,18 +1,17 @@
 
 package miinaharava;
 
+import java.util.Random;
 import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.scene.Group;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class MiinaharavaSovellus extends Application {
@@ -44,21 +43,41 @@ public class MiinaharavaSovellus extends Application {
         Scene menu = new Scene(layout);
         
         //game window-------------------
-        Group root = new Group();
+        
+        int SIZE = 10;
+            int length = SIZE;
+            int width = SIZE;
+
+            GridPane root = new GridPane();    
+
+            for(int y = 0; y < length; y++){
+                for(int x = 0; x < width; x++){
+
+                    Random rand = new Random();
+                    int rand1 = rand.nextInt(2);
+                    
+                    TextField tf = new TextField();
+                    tf.setPrefHeight(50);
+                    tf.setPrefWidth(50);
+                    tf.setAlignment(Pos.CENTER);
+                    tf.setEditable(false);
+                    tf.setText( "" + rand1 );
+
+                    // Iterate the Index using the loops
+                    root.setRowIndex(tf,y);
+                    root.setColumnIndex(tf,x);    
+                    root.getChildren().add(tf);
+                
+                }
+            }
+        
         Label label = new Label("Etsi pommit, mutta älä räjähdä!");
-        Canvas canvas = new Canvas(400,300);
-        GraphicsContext draw = canvas.getGraphicsContext2D();
-        draw.setFill(Color.WHITE);
-        
-        BorderPane game = new BorderPane();
-        game.setCenter(canvas);
-        game.setTop(label);
-        root.getChildren().add(game);
         
         
-        Scene gameview = new Scene(root);
-        //Miinaharava sweeper = new Miinaharava(400,500);
-        //sweeper.randomMines();
+        Scene gameview = new Scene(root, 500, 500);
+        
+        Miinaharava sweeper = new Miinaharava(40,50,10);
+        sweeper.randomMines();
         
         //Aloita button
         startButton.setOnAction((event) -> {

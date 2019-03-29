@@ -6,15 +6,32 @@ import java.util.Random;
 public class Miinaharava {
     
     private int[][] table;
+    private int mines;
+    private int width;
+    private int height;
     
-    public Miinaharava(int width, int height) {
-        this.table = new int[width][height];
+    public Miinaharava(int width, int height, int mines) {
+        this.width = width;
+        this.height = height;
+        this.mines = mines;
+        
+        table = new int [width][height];
     }
+    //placing mines into field
     public void randomMines() {
         Random random = new Random();
+        int minesInField = 0;
+        while (minesInField < mines) {
+            int x = random.nextInt(width);
+            int y = random.nextInt(height);
+            //10 = mine
+             if (table[x][y] != 10) {
+                 table[x][y] = 10;
+                 minesInField ++;
+             }
+        }
         
-        //todo: selvitä miten saat tietyn määrän 
-        //miinoja arvottua taulukkoon
+
     }
     //adding numbers in tiles
     public void numbers() {
@@ -22,16 +39,17 @@ public class Miinaharava {
         
         for (int x = 0; x < copy.length; x++) {
             for (int y = 0; y < copy.length; y++) {
-                int mines = minesAround(table, x,y);
+                if(table[x][y] != 10) {
+                    table[x][y] = minesAroundTile(x, y);
+                }
                 
-                //todo numeroiden sijoitus
             }
         }
     
     
     }
     //counting mines around the tile
-    public int minesAround(int[][] table, int x, int y) {
+    public int minesAroundTile( int x, int y) {
         int mines = 0;
         
         for (int xM = -1; xM <= 1; xM++) {
@@ -43,7 +61,7 @@ public class Miinaharava {
                 if (yM + y < 0 || yM + y >= this.table[x].length) {
                 continue;
                 }
-                if (table[xM + x][yM + y] == 1) {
+                if (table[xM + x][yM + y] == 10) {
                     mines++;
                 }
             }
