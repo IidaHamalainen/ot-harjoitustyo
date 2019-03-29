@@ -1,5 +1,3 @@
-# READ ME
-
 
 # Miinaharava
 
