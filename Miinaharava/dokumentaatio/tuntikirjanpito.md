@@ -6,3 +6,4 @@ Päivä | Tunnit | Mitä tein
   21.3 | 3 | Javafx kertausta, sovelluksen rungon koodausta
   29.3 | 2 | matriisi ja GridPane testailua miinaharavan pohjan luomiseksi
   || 2.5 | Sovelluksen toimintojen koodausta, testiluokan lisäys, repositorion siistiminen
+  1.4 | 2 | Käyttöliittymän ja sovelluslogiikan siirto eri pakkauksiin, käyttöliittymän siistimistä ja poistaminen testeistä. Suurin osa ajasta meni siihen että yritin selvittää, miten olisi mahdollista saad peli näkyville.
