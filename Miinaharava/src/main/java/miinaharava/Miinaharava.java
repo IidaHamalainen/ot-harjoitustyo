@@ -42,12 +42,13 @@ public class Miinaharava {
                 if(table[x][y] != 10) {
                     table[x][y] = minesAroundTile(x, y);
                 }
-                
+           
             }
-        }
+       }
     
     
     }
+    
     //counting mines around the tile
     public int minesAroundTile( int x, int y) {
         int mines = 0;
