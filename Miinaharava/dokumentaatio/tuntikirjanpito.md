@@ -8,3 +8,4 @@ Päivä | Tunnit | Mitä tein
   || 2.5 | Sovelluksen toimintojen koodausta, testiluokan lisäys, repositorion siistiminen
   1.4 | 2 | Käyttöliittymän ja sovelluslogiikan siirto eri pakkauksiin, käyttöliittymän siistimistä ja poistaminen testeistä. Suurin osa ajasta meni siihen että yritin selvittää, miten olisi mahdollista saad peli näkyville.
   2.4 | 4 | (Tuloksetonta) Pane, StackPane kokeilua, yritys selvittää kuinka saada miinaharavan taulukko eli kenttä näkyviin graafiseen käyttöliittymään.
+  2.4. | 4 | käyttöliittymän, sovelluslogiikan ja luokkien eriytys, Tile ja Minefield luokkien koodaus
