@@ -2,27 +2,34 @@
 package miinaharava.ui;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import miinaharava.Miinaharava;
+import miinaharava.logic.MiinaharavaLogic;
+
 
 
 public class MiinaharavaUi extends Application {
     
-    private Miinaharava miinaharava;
+    private MiinaharavaLogic miinaharava;
     
     private Scene menuScene;
     private Scene gameScene;
-    
-    //gamenlabel vaihda teksti kun voitto tai häviö
-    //gameLabel.setText("teksti")
-    private Label gameLabel;
+   
 
     @Override
     public void start(Stage stage) {
@@ -49,13 +56,11 @@ public class MiinaharavaUi extends Application {
         BorderPane.setMargin(results, new Insets(10,10,10,10));
         
         startButton.setOnAction((event) -> {
-           //luo uusi peli
            stage.setScene(gameScene);
+           
         });
         
-        menuScene = new Scene(menuPane);
-        
-        
+        menuScene = new Scene(menuPane);        
         
         //game window
         
@@ -74,15 +79,20 @@ public class MiinaharavaUi extends Application {
         
         gameScene = new Scene(gamePane);
         
-        
         stage.setTitle("Miinaharava");
         stage.setScene(menuScene);
         stage.show();
+                   
+        
     }
     
     public static void main(String[] args) {
         launch(MiinaharavaUi.class);
     }
+    
+    
+            
+ 
 }
 
 
