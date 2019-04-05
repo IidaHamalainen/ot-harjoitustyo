@@ -10,11 +10,14 @@ public class Tile {
     public Tile () {
         this.mine = false;
         this.visible = false;
-        this.minesNear = "";
+        this.minesNear = " ";
         
     }
-    public boolean tileHasMine() {
+    public boolean getContent() {
         return mine;
+    }
+    public boolean hasMine() {
+        return mine == true;
     }
     
     public boolean tileIsOpen() {
@@ -23,14 +26,23 @@ public class Tile {
     
     public void setOpen() {
         this.visible = true;
+        System.out.println(this.minesNear);
     }
     
     public void setMine() {
         this.mine = true;
     }
     
-    public void setNumber(int clue) {
-        this.minesNear = "" +clue;
+    public String setNumber(int clue) {
+        this.minesNear = " " + clue;
+        return this.minesNear;
+    }
+    public String getSymbol() {
+        return this.minesNear;
+    }
+
+    public Boolean hasMineSweeped() {
+        return this.mine == true && this.visible;
     }
    
 }

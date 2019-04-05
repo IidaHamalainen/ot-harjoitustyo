@@ -40,7 +40,7 @@ public class Minefield {
         while (mineAmount < mines) {
             int x = random.nextInt(this.width);
             int y = random.nextInt(this.height);
-            if (!field[x][y].tileHasMine()) { //no mine in tile already
+            if (!field[x][y].getContent() == true) { //no mine in tile already
                 this.field[x][y].setMine(); 
                 mineAmount ++;
             }
@@ -71,7 +71,7 @@ public class Minefield {
                 if (yM + y < 0 || yM + y >= returnHeight()) {
                 continue;
                 }
-                if (field[xM + x][yM + y].tileHasMine()) {
+                if (field[xM + x][yM + y].hasMine()) {
                     mines++;
                 }
             }
@@ -79,16 +79,17 @@ public class Minefield {
         return mines;
     }
     
-    public void open(int x, int y) {
+    public void sweep(int x, int y) {
         Tile opened = this.field[x][y];
         
-        if(opened.tileHasMine()) {
+        if(opened.hasMine()) {
             //miinaan osuminen, peli loppuu
             revealAll();
             
         } else {
+          opened.setNumber(minesAroundTile(x, y));
           opened.setOpen();
-          opened.setNumber(minesAroundTile(x,y));
+          
            
           //käydään läpi viereiset ja paljastetaan ne missä ei ole miinaa
           int[] limits = selectAround(x, y);
@@ -100,7 +101,8 @@ public class Minefield {
             for (int i = xMin; i <= xMax; i++) {
                 for (int j = yMin; j <= yMax; j++) {
                     
-                    if(!this.field[i][j].tileHasMine()) {
+                    if(!this.field[i][j].hasMine()) { 
+                        this.field[i][j].setNumber(minesAroundTile(i,j));
                         this.field[i][j].setOpen();
                     }
 
@@ -108,6 +110,7 @@ public class Minefield {
             
             }
         }
+        
         
     }
     public void revealAll() {
@@ -131,6 +134,8 @@ public class Minefield {
     public Tile[][] getMinefield() {
         return this.field;
     }   
+
+    
 }
 
 
