@@ -99,8 +99,9 @@ public class Minefield {
                 for (int j = yMin; j <= yMax; j++) {
                     
                     if (!this.field[i][j].hasMine()) { 
-                        this.field[i][j].setNumber(minesAroundTile(i, j));
                         this.field[i][j].setOpen();
+                        this.field[i][j].setNumber(minesAroundTile(i, j));
+                        
                     }
 
                 }                

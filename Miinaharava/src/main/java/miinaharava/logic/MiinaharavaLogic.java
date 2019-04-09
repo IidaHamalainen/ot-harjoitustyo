@@ -42,7 +42,7 @@ public class MiinaharavaLogic {
         if (tile.hasMine()) {
             return "X";
         } else if (tile.getContent() == false) {
-            return "";
+            return tile.getSymbol();
         }
         return tile.getSymbol() + "";
     }
