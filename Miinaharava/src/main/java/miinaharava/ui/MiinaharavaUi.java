@@ -1,5 +1,5 @@
 
-package miinaharava;
+package miinaharava.ui;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -16,12 +16,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import miinaharava.logic.MiinaharavaLogic;
 import miinaharava.model.Tile;
 
-/**
- *
- * @author iida
- */
 public class MiinaharavaUi extends Application {
     private MiinaharavaLogic miinaharava;
     
@@ -132,6 +129,7 @@ public class MiinaharavaUi extends Application {
                     brush.setFill(Color.BLACK);
                     brush.setTextAlign(TextAlignment.CENTER);
                     brush.setTextBaseline(VPos.CENTER);
+                    
 
                     // This could be done in UI as well to add colors etc.
                     String symbol = logic.getTileSymbol(tile);
@@ -165,12 +163,4 @@ public class MiinaharavaUi extends Application {
         logic.sweep(x, y);
     }
     
-    
-            
- 
 }
-
-
-        
-    
-

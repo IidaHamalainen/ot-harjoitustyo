@@ -1,15 +1,11 @@
 
-package miinaharava;
+package miinaharava.logic;
 
 import miinaharava.model.Minefield;
 import miinaharava.model.Tile;
 
-/**
- *
- * @author iida
- */
 public class MiinaharavaLogic {
-    Minefield minefield;
+    public Minefield minefield;
     Boolean win;
     Boolean lost;
     
@@ -23,11 +19,11 @@ public class MiinaharavaLogic {
         
         updateGameStatus();
         
-        if(!gameRunning()) {
+        if (!gameRunning()) {
             this.minefield.revealAll();
         }
     }
-    private void updateGameStatus() {
+    public void updateGameStatus() {
         Tile[][] field = minefield.getMinefield();
         Boolean mineSweeped = false;
         
@@ -46,10 +42,9 @@ public class MiinaharavaLogic {
         if (tile.hasMine()) {
             return "X";
         } else if (tile.getContent() == false) {
-            return " ";
+            return "";
         }
         return tile.getSymbol() + "";
     }
 }
-
 

@@ -7,7 +7,7 @@ public class Tile {
     private boolean visible; //false: not visible
     private String minesNear;
     
-    public Tile () {
+    public Tile() {
         this.mine = false;
         this.visible = false;
         this.minesNear = " ";
@@ -26,7 +26,7 @@ public class Tile {
     
     public void setOpen() {
         this.visible = true;
-        System.out.println(this.minesNear);
+        //System.out.println(this.minesNear);
     }
     
     public void setMine() {

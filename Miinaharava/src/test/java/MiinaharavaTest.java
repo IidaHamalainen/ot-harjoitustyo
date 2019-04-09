@@ -1,12 +1,8 @@
 
 
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
-import miinaharava.logic.MiinaharavaLogic;
 
+import miinaharava.logic.MiinaharavaLogic;
+import miinaharava.model.Minefield;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,17 +12,10 @@ import static org.junit.Assert.*;
 
 public class MiinaharavaTest {
      MiinaharavaLogic m;
+     Minefield f;
 
 
     public MiinaharavaTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
     }
     
     @Before
@@ -34,17 +23,23 @@ public class MiinaharavaTest {
          
     }
     
-    @After
-    public void tearDown() {
-    }
-
     @Test
     public void minefieldExist() {
         m = new MiinaharavaLogic(10, 10, 5);
         assertTrue(m != null);
     }
     @Test
-    public void MinesAroundTileWorks() {
-       
+    public void countingMinesWorks() {
+        f = new Minefield(3,3,5);
+        int mines = f.minesAroundTile(1, 1);
+        //the number is either 4 or 5 depending whether tile 1,1 has mine or not   
+        assertTrue(mines == 4 || mines == 5);
+        
+    }
+    @Test
+    public void gameLostTest() {
+        m = new MiinaharavaLogic(3,3,9);
+        m.sweep(0, 0);
+        assertFalse(m.gameRunning());
     }
 }

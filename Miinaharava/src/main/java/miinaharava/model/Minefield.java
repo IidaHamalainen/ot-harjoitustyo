@@ -9,7 +9,7 @@ public class Minefield {
     private int height;
     private Tile[][] field;
     
-    public Minefield (int width, int height, int mines) {
+    public Minefield(int width, int height, int mines) {
         this.width = width;
         this.height = height;
         this.mines = mines;
@@ -42,7 +42,7 @@ public class Minefield {
             int y = random.nextInt(this.height);
             if (!field[x][y].getContent() == true) { //no mine in tile already
                 this.field[x][y].setMine(); 
-                mineAmount ++;
+                mineAmount++;
             }
         }
     }
@@ -50,16 +50,16 @@ public class Minefield {
     private Tile[][] initTiles() {
         Tile[][] result = new Tile[this.width][this.height];
         
-        for(int x = 0; x < this.width; x++) {
-            for(int y = 0; y < this.height; y++) {
-               result[x][y] = new Tile();
+        for (int x = 0; x < this.width; x++) {
+            for (int y = 0; y < this.height; y++) {
+                result[x][y] = new Tile();
             }
-       }
-       return result;
+        }
+        return result;
     }
      
     //counting mines around the tile
-    public int minesAroundTile( int x, int y) {
+    public int minesAroundTile(int x, int y) {
         int mines = 0;
         
         for (int xM = -1; xM <= 1; xM++) {
@@ -69,7 +69,7 @@ public class Minefield {
 
             for (int yM = -1; yM <= 1; yM++) {
                 if (yM + y < 0 || yM + y >= returnHeight()) {
-                continue;
+                    continue;
                 }
                 if (field[xM + x][yM + y].hasMine()) {
                     mines++;
@@ -82,27 +82,24 @@ public class Minefield {
     public void sweep(int x, int y) {
         Tile opened = this.field[x][y];
         
-        if(opened.hasMine()) {
-            //miinaan osuminen, peli loppuu
-            revealAll();
-            
+        if (opened.hasMine()) {
+            revealAll();  
+        
         } else {
-          opened.setNumber(minesAroundTile(x, y));
-          opened.setOpen();
+            opened.setNumber(minesAroundTile(x, y));
+            opened.setOpen();
           
-           
-          //käydään läpi viereiset ja paljastetaan ne missä ei ole miinaa
-          int[] limits = selectAround(x, y);
-          int xMin = limits[0];
-          int xMax = limits[1];
-          int yMin = limits[2];
-          int yMax = limits[3];
+            int[] limits = selectAround(x, y);
+            int xMin = limits[0];
+            int xMax = limits[1];
+            int yMin = limits[2];
+            int yMax = limits[3];
 
             for (int i = xMin; i <= xMax; i++) {
                 for (int j = yMin; j <= yMax; j++) {
                     
-                    if(!this.field[i][j].hasMine()) { 
-                        this.field[i][j].setNumber(minesAroundTile(i,j));
+                    if (!this.field[i][j].hasMine()) { 
+                        this.field[i][j].setNumber(minesAroundTile(i, j));
                         this.field[i][j].setOpen();
                     }
 
