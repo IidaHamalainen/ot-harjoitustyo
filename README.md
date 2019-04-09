@@ -18,7 +18,7 @@ Kattavuusraportti luodaan komennolla
 
 `mvn jacoco:report`
 
-### Chechstyle
+### Checkstyle
 Checkstyle tarkastukset suoritetaan komennolla 
 
 `mvn jxr:jxr checkstyle:checkstyle`
