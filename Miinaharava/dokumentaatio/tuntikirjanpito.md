@@ -11,3 +11,6 @@ Päivä | Tunnit | Mitä tein
   2.4. | 4 | käyttöliittymän, sovelluslogiikan ja luokkien eriytys, Tile ja Minefield luokkien koodaus
   5.4. |1.5 | sovelluksen koodausta
 9.4. | 4 | Testien kirjoitusta, checkstyle käyttöönotto, luokkakaavio
+12.4. | x | Miinojen merkitseminen
+
+Tuntien summa :
