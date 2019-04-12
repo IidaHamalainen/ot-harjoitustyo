@@ -8,6 +8,9 @@
 
 [Tuntikirjanpito](https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/tuntikirjanpito.md)
 
+## Releaset
+
+
 ## Komentorivitoiminnot
 ### Testaus
 Testit suoritetaan komennolla 
@@ -18,7 +21,19 @@ Kattavuusraportti luodaan komennolla
 
 `mvn jacoco:report`
 
+Raporttia pääsee tarkastelemaan selaimeen avaamalla tiedoton index.html target/site/jacoco -hakemistosta
+
+### Suoritettavan jarin generointi
+Komennolla 
+
+`mvn packega`
+
+saa generoitua hakemistoon target jar-tiedoston
+
+
 ### Checkstyle
 Checkstyle tarkastukset suoritetaan komennolla 
 
 `mvn jxr:jxr checkstyle:checkstyle`
+
+Virheet saa näkyville elaimeen avaamalla tiedoston checkstyle.html target/site - hakemistosta.
