@@ -14,15 +14,14 @@ Pelissä on graafinen käyttöliittymä.
 * Sovelluksen käynnistyessä näytetään valikko, jonka toiminnot ovat "Aloita peli" joka käynnistää pelin, 
   ja "Lopeta", mikä sulkee sovelluksen. 
   * Lisäksi on listaus edellisten läpäistyjen pelien kestoista- mahdollisesti viisi edellistä näkyy.
-* Pelin loppuessa pommiin osumiseen näytetään sivu, jolla kerrotaan että pelaaja hävisi. 
-  * Sivulta pääsee takaisin valikkonäkymään "Palaa valikkoon" napin kautta. 
+* Pelin loppuessa pommiin osumiseen näytetään viesti, jolla kerrotaan että pelaaja hävisi.
 * Vastaavasti jos pelaaja onnistuu avaamaan kaikki ruudut joissa ei ole pommia, 
   ilmoitetaan pelaajan voittaneen. 
-  * Sivulla on vastaava "Palaa valikkoon" nappi.
+  * Sivulla on "Palaa valikkoon" nappi.
   
 #### Pelin aikana
 * Ruudun klikkaaminen joko muuttaa ruudun värin (ruutu on avattu), 
-  tai jos ruudussa on pommi, avaa pelin loppumisesta kertovan sivun.
+  tai jos ruudussa on pommi, avaa pelin loppumisesta kertovan viestin.
 * Ensimmäisen ruudun klikkaaminen avaa pienen turvallisten ruutujen alueen, jota pelaaja lähtee laajentamaan.
 * Mahdollisuus merkitä pommeiksi epäillyt ruudut eri värillä.
 * Avatun ruudun ympärillä oleviin ruutuihin ilmestyy näkyviin numero, 
