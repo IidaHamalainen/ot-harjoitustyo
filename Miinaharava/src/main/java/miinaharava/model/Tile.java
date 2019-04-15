@@ -26,7 +26,7 @@ public class Tile {
     
     public void setOpen() {
         this.visible = true;
-        //System.out.println(this.minesNear);
+       
     }
     
     public void setMine() {
@@ -34,7 +34,9 @@ public class Tile {
     }
     
     public String setNumber(int clue) {
+        
         this.minesNear = " " + clue;
+        
         return this.minesNear;
     }
     public String getSymbol() {

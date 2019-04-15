@@ -18,13 +18,13 @@ public class Minefield {
     }
     
     public int returnWidth() {
-        
-        return field.length;
+              
+        return this.width;
     }
     
     public int returnHeight() {
        
-        return field[0].length;
+        return this.height;
     }
     
     
@@ -132,6 +132,21 @@ public class Minefield {
     public Tile[][] getMinefield() {
         return this.field;
     }   
+    public boolean isVictory() {
+        int tile = 0;
+        boolean victory = false;
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field[0].length; j++) {
+                if (field[i][j].tileIsOpen() == true )
+                    tile++;
+            }
+        }
+        int safeTiles = this.height * this.width - this.mines;
+        if (tile == safeTiles) {
+            victory = true;
+        }
+        return victory;
+    }
 
     
 }

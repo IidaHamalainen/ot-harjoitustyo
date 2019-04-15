@@ -18,6 +18,7 @@ public class MiinaharavaLogic {
         this.minefield.sweep(x, y);
         
         updateGameStatus();
+        isVictory();
         
         if (!gameRunning()) {
             this.minefield.revealAll();
@@ -39,12 +40,17 @@ public class MiinaharavaLogic {
         return !(lost || win);
     }
     public String getTileSymbol(Tile tile) {
-        if (tile.hasMine()) {
+        if (tile.getContent() == true) {
             return "X";
         } else if (tile.getContent() == false) {
             return tile.getSymbol();
         }
         return tile.getSymbol() + "";
     }
+    public boolean isVictory() {
+        return this.minefield.isVictory();
+    }
+    
+    
 }
 
