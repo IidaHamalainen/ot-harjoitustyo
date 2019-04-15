@@ -100,6 +100,7 @@ public class MiinaharavaUi extends Application {
         Button backButton = new Button("Palaa valikkoon");
         
         
+        
         Canvas fieldCanvas = new Canvas(300, 300);
         drawMineField(fieldCanvas, logic);
         fieldCanvas.setOnMouseClicked((event) -> {
@@ -108,6 +109,8 @@ public class MiinaharavaUi extends Application {
             if (logic.isVictory()) {
                 label.setText("VOITIT! JEE");
                 
+            } else if (logic.isLost()) {
+                label.setText("HÄVISIT!");
             }
         });
         
@@ -118,6 +121,7 @@ public class MiinaharavaUi extends Application {
         
         
         BorderPane.setMargin(backButton, new Insets(10,10,10,10));
+        BorderPane.setMargin(label, new Insets(20, 10, 10, 40));
         
         backButton.setOnAction((event) -> {
             stage.setScene(menuScene);

@@ -50,7 +50,9 @@ public class MiinaharavaLogic {
     public boolean isVictory() {
         return this.minefield.isVictory();
     }
-    
+    public boolean isLost() {
+        return this.lost;
+    }
     
 }
 
