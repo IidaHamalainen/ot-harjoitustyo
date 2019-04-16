@@ -9,7 +9,7 @@
 [Tuntikirjanpito](https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/tuntikirjanpito.md)
 
 ## Releaset
-[RELEASE1](https://github.com/IidaHamalainen/ot-harjoitustyo/releases)
+[viikko5](https://github.com/IidaHamalainen/ot-harjoitustyo/releases)
 
 ## Komentorivitoiminnot
 ### Testaus
