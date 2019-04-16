@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 
-public class Timer extends Pane{
+public class Timer extends Pane {
   
     private static Label currentTime = new Label();
     private int seconds = 0;
@@ -27,7 +27,7 @@ public class Timer extends Pane{
         }));
         timer.play();
     
-}
+    }
 
     private void changeCurrentTime() {
         DecimalFormat df = new DecimalFormat("00");

@@ -140,20 +140,23 @@ public class Minefield {
     public boolean isVictory() {
         int tile = 0;
         boolean victory = false;
+        int safeTiles = this.height * this.width - this.mines;
+        
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[0].length; j++) {
-                if (field[i][j].tileIsOpen() == true )
+                if (field[i][j].tileIsOpen() == true) {
                     tile++;
+                }
             }
         }
-        int safeTiles = this.height * this.width - this.mines;
         if (tile == safeTiles) {
             victory = true;
         }
+        
+        
         return victory;
-    }
-
     
+    }
 }
 
 

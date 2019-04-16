@@ -3,6 +3,8 @@
 
 import miinaharava.logic.MiinaharavaLogic;
 import miinaharava.model.Minefield;
+import miinaharava.model.Tile;
+import miinaharava.model.Timer;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,15 +15,14 @@ import static org.junit.Assert.*;
 public class MiinaharavaTest {
      MiinaharavaLogic m;
      Minefield f;
+     Timer t;
+     Tile tile;
+     Tile[][] field;
 
 
     public MiinaharavaTest() {
     }
     
-    @Before
-    public void setUp() {
-         
-    }
     
     @Test
     public void minefieldExist() {
@@ -42,4 +43,37 @@ public class MiinaharavaTest {
         m.sweep(0, 0);
         assertFalse(m.gameRunning());
     }
-}
+    @Test 
+    public void gameWinTest() {
+        m = new MiinaharavaLogic(5, 5, 0);
+        m.sweep(0, 0);
+        assertTrue(m.gameRunning());
+    }
+    
+    @Test
+    public void tileFlaggingTest() {
+        Tile tile = new Tile();
+        assertFalse(tile.isFlagged());
+        
+        tile.setFlag();
+        assertTrue(tile.isFlagged());
+    }
+    @Test
+    public void logicFlagged() {
+        m = new MiinaharavaLogic(5, 5, 5);
+        m.setFlag(0, 0);
+        Tile[][] field = m.minefield.getMinefield();
+        Tile tile = field[0][0];
+        assertTrue(tile.isFlagged());
+    }
+    @Test
+    public void logicNotFlagged() {
+        m = new MiinaharavaLogic(5, 5, 5);
+        m.setFlag(0, 0);
+        Tile[][] field = m.minefield.getMinefield();
+        Tile tile = field[2][2];
+        assertFalse(tile.isFlagged());
+    }
+    
+   
+ }

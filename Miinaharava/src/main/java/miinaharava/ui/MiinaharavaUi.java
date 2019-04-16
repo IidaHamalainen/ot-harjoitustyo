@@ -113,16 +113,14 @@ public class MiinaharavaUi extends Application {
         
         //game window
         
-        BorderPane gamePane = new BorderPane();
-        
-        
+        BorderPane gamePane = new BorderPane(); 
         
         Button backButton = new Button("Palaa valikkoon");
-        
         
         fieldCanvas.setOnMouseClicked((event) -> {
             handleMouseClick(event, fieldCanvas, logic);
             drawMineField(fieldCanvas, logic);
+            
             if (logic.isVictory()) {
                 label.setText("VOITIT! JEE");
                 Timer.stop();
@@ -141,7 +139,6 @@ public class MiinaharavaUi extends Application {
         gamePane.setPrefSize(500, 400);
         gamePane.setCenter(fieldCanvas);
         
-        
         BorderPane.setMargin(backButton, new Insets(10,10,10,10));
         BorderPane.setMargin(label, new Insets(20, 10, 10, 40));
         BorderPane.setMargin(gameTimer,new Insets(20, 40, 10, 40) );
@@ -153,8 +150,7 @@ public class MiinaharavaUi extends Application {
         
         stage.setTitle("Miinaharava");
         stage.setScene(menuScene);
-        stage.show();
-                   
+        stage.show();         
         
     }
     
