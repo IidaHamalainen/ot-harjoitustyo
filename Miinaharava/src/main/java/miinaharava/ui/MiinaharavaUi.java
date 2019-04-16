@@ -14,6 +14,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -24,6 +25,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import miinaharava.logic.MiinaharavaLogic;
 import miinaharava.model.Tile;
+import miinaharava.model.Timer;
 
 public class MiinaharavaUi extends Application {
     
@@ -31,6 +33,8 @@ public class MiinaharavaUi extends Application {
     private Scene menuScene;
     private Scene gameScene;
     private MiinaharavaLogic logic;
+    private Timer gameTimer;
+    
    
 
     @Override
@@ -41,18 +45,25 @@ public class MiinaharavaUi extends Application {
         //menu window
         BorderPane menuPane = new BorderPane();
         Label title = new Label("Tervetuloa pelaamaan miinaharavaa!");
+        
+        Label difficulty = new Label("Valitse vaikeustaso:");
         Button normal = new Button("Normaali");
         Button easy = new Button("Helppo");
         Button hard = new Button("Vaikea");
-       
+        Button startButton = new Button("Aloita");
         
         HBox level = new HBox();
         level.setSpacing(20);
         level.getChildren().add(easy);
         level.getChildren().add(normal);
         level.getChildren().add(hard);
-      
         
+        VBox selectLevel = new VBox();
+        selectLevel.setSpacing(20);
+        selectLevel.getChildren().add(difficulty);
+        selectLevel.getChildren().add(level);
+        selectLevel.getChildren().add(startButton);
+
         
         VBox results = new VBox();
         results.getChildren().add(new Label("Tulokset"));
@@ -61,32 +72,41 @@ public class MiinaharavaUi extends Application {
         
         menuPane.setTop(title);
         menuPane.setRight(results);
-        menuPane.setBottom(level);
+        menuPane.setCenter(selectLevel);
         
         
         menuPane.setPrefSize(500, 400);
         BorderPane.setMargin(title, new Insets(10,10,10,50));
         BorderPane.setMargin(results, new Insets(10,10,10,10));
-        BorderPane.setMargin(level, new Insets(100, 10, 100, 100));
+        BorderPane.setMargin(selectLevel, new Insets(100, 10, 10, 10));
         
-        
+        Canvas fieldCanvas = new Canvas(300, 300);
+        drawMineField(fieldCanvas, logic);
+        Label label = new Label("");
+        Font font = new Font(20);
+        label.setFont(font);
+        Timer gameTimer = new Timer(); //To do: reset timer for every game
+         
         easy.setOnAction((event) -> {
             logic = new MiinaharavaLogic(10, 10, 20);
-            stage.setScene(gameScene);
+            difficulty.setText("Valittu: Helppo");
         });
-        
-                
+               
         normal.setOnAction((event) -> {
            logic = new MiinaharavaLogic(16, 16, 40);
-           stage.setScene(gameScene);
-           
+           difficulty.setText("Valittu: Normaali");
         });
         
         hard.setOnAction((event) -> {
             logic = new MiinaharavaLogic(22, 22, 60);
-            stage.setScene(gameScene);
+            difficulty.setText("Valittu: Vaikea");
         });
         
+        startButton.setOnAction((event) -> {
+            drawMineField(fieldCanvas, logic);
+            label.setText("Game is on!");
+            stage.setScene(gameScene);
+        });
         
         
         menuScene = new Scene(menuPane);        
@@ -94,27 +114,29 @@ public class MiinaharavaUi extends Application {
         //game window
         
         BorderPane gamePane = new BorderPane();
-        Label label = new Label("Game is on!");
-        Font font = new Font(20);
-        label.setFont(font);
+        
+        
+        
         Button backButton = new Button("Palaa valikkoon");
         
         
-        
-        Canvas fieldCanvas = new Canvas(300, 300);
-        drawMineField(fieldCanvas, logic);
         fieldCanvas.setOnMouseClicked((event) -> {
             handleMouseClick(event, fieldCanvas, logic);
             drawMineField(fieldCanvas, logic);
             if (logic.isVictory()) {
                 label.setText("VOITIT! JEE");
+                Timer.stop();
+                
                 
             } else if (logic.isLost()) {
                 label.setText("HÄVISIT!");
+                Timer.stop();
+                
             }
         });
         
         gamePane.setTop(label);
+        gamePane.setRight(gameTimer);
         gamePane.setBottom(backButton);
         gamePane.setPrefSize(500, 400);
         gamePane.setCenter(fieldCanvas);
@@ -122,7 +144,7 @@ public class MiinaharavaUi extends Application {
         
         BorderPane.setMargin(backButton, new Insets(10,10,10,10));
         BorderPane.setMargin(label, new Insets(20, 10, 10, 40));
-        
+        BorderPane.setMargin(gameTimer,new Insets(20, 40, 10, 40) );
         backButton.setOnAction((event) -> {
             stage.setScene(menuScene);
         });
@@ -182,6 +204,10 @@ public class MiinaharavaUi extends Application {
                             Math.round(startX) + squareWidth / 2,
                             Math.round(startY) + squareHeight / 2
                     );
+                } else if(tile.isFlagged() ) {
+                    brush.setFill(Color.DARKRED);
+                    brush.fillRect(startX, startY, squareWidth, squareHeight);
+                    
                 } else {
                     brush.setFill(Color.DARKSEAGREEN);
                     brush.fillRect(startX, startY, squareWidth, squareHeight);
@@ -208,8 +234,18 @@ public class MiinaharavaUi extends Application {
         int x = locationInGrid(mouseX, width, fieldWidth);
         int y = locationInGrid(mouseY, height, fieldHeight);
 
-        logic.sweep(x, y);
+      
+        if ((event.getButton().equals(MouseButton.PRIMARY))) {
+                
+            logic.sweep(x, y);
+        }
         
+        
+        if ((event.getButton().equals(MouseButton.SECONDARY))) {
+            
+            logic.setFlag(x, y);
+        }
+       
         
         
     }

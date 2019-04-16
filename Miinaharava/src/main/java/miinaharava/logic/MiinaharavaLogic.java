@@ -4,6 +4,7 @@ package miinaharava.logic;
 import miinaharava.model.Minefield;
 import miinaharava.model.Tile;
 
+
 public class MiinaharavaLogic {
     public Minefield minefield;
     Boolean win;
@@ -13,6 +14,7 @@ public class MiinaharavaLogic {
         this.minefield = new Minefield(width, height, mines);
         this.win = false;
         this.lost = false;
+       
     }
     public void sweep(int x, int y) {
         this.minefield.sweep(x, y);
@@ -24,6 +26,11 @@ public class MiinaharavaLogic {
             this.minefield.revealAll();
         }
     }
+    public void setFlag(int x, int y) {
+        this.minefield.flag(x, y);
+        
+    }
+    
     public void updateGameStatus() {
         Tile[][] field = minefield.getMinefield();
         Boolean mineSweeped = false;
@@ -48,11 +55,14 @@ public class MiinaharavaLogic {
         return tile.getSymbol() + "";
     }
     public boolean isVictory() {
+       
         return this.minefield.isVictory();
     }
     public boolean isLost() {
+       
         return this.lost;
     }
+    
     
 }
 

@@ -111,6 +111,11 @@ public class Minefield {
         
         
     }
+    public void flag(int x, int y) {
+        Tile flagged = this.field[x][y];
+        flagged.setFlag();
+    }
+    
     public void revealAll() {
         for (int i = 0; i < this.field.length; i++) {
             for (int j = 0; j < this.field[0].length; j++) {

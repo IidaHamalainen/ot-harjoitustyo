@@ -6,11 +6,13 @@ public class Tile {
     private boolean mine; //false: no mine
     private boolean visible; //false: not visible
     private String minesNear;
+    private boolean flagged;
     
     public Tile() {
         this.mine = false;
         this.visible = false;
         this.minesNear = " ";
+        this.flagged = false;
         
     }
     public boolean getContent() {
@@ -23,10 +25,16 @@ public class Tile {
     public boolean tileIsOpen() {
         return visible;
     }
+    public boolean isFlagged() {
+        return flagged;
+    }
     
     public void setOpen() {
         this.visible = true;
        
+    }
+    public void setFlag() {
+        this.flagged = true;
     }
     
     public void setMine() {
