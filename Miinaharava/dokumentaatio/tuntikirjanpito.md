@@ -13,6 +13,7 @@ Päivä | Tunnit | Mitä tein
 9.4. | 4 | Testien kirjoitusta, checkstyle käyttöönotto, luokkakaavio
 12.4. | 2 | Sekvenssikaavio, avattujen ruutujen laskeminen voiton tarkastamiseksi
 15.4. | 2 | Voiton tarkastuksen viimeistely, pelikentän ruutujen reunojen piirtäminen ja väri, testailua ruudukon koon muuttamisessa.
-15.4. |1.5 | Vaikeustason valinta nappien avulla. Kokeilin esin choiceBoxia, mutta en saanut sitä toimimaan.
+15.4. |2 | Vaikeustason valinta nappien avulla. Kokeilin esin choiceBoxia, mutta en saanut sitä toimimaan.
+16.4. | 2 | Ajastimen koodausta, eri vaihtoehtojen testailua
 
 Tuntien summa :
