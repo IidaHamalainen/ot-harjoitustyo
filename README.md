@@ -19,7 +19,7 @@ Testit suoritetaan komennolla
 
 Kattavuusraportti luodaan komennolla 
 
-`mvn jacoco:report`
+`mvn test jacoco:report`
 
 Raporttia pääsee tarkastelemaan selaimeen avaamalla tiedoton index.html target/site/jacoco -hakemistosta
 
