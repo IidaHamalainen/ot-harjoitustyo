@@ -15,6 +15,6 @@ Päivä | Tunnit | Mitä tein
 15.4. | 2 | Voiton tarkastuksen viimeistely, pelikentän ruutujen reunojen piirtäminen ja väri, testailua ruudukon koon muuttamisessa.
 15.4. |2 | Vaikeustason valinta nappien avulla. Kokeilin esin choiceBoxia, mutta en saanut sitä toimimaan.
 16.4. | 2 | Ajastimen koodausta, eri vaihtoehtojen testailua
-16.4. | 1 | Epäiltyjen miinojen merkitseminen punaisella
+16.4. | 3 | Epäiltyjen miinojen merkitseminen punaisella, testien kirjoittaminen, releasen teko, checkstyle tarkastus
 
-Tuntien summa :
+Tuntien summa : 36
