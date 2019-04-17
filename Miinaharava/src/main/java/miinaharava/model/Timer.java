@@ -2,12 +2,12 @@
 package miinaharava.model;
 
 import java.text.DecimalFormat;
-import javafx.util.Duration;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 
 public class Timer extends Pane {

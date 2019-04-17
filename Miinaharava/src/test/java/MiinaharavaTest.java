@@ -21,8 +21,7 @@ public class MiinaharavaTest {
 
 
     public MiinaharavaTest() {
-    }
-    
+    } 
     
     @Test
     public void minefieldExist() {
