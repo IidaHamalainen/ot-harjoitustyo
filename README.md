@@ -2,6 +2,9 @@
 # Miinaharava
 
 ## Dokumentaatio
+
+[Käyttöohje](https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kayttohje.md)
+
 [Vaatimusmaarittely](https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/vaatimusmaarittely.md)
 
 [Arkkitehtuurikuvaus](https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/arkkitehtuuri.md)
