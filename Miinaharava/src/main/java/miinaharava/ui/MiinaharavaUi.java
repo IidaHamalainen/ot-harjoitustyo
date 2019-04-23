@@ -80,21 +80,24 @@ public class MiinaharavaUi extends Application {
         BorderPane.setMargin(results, new Insets(10,10,10,10));
         BorderPane.setMargin(selectLevel, new Insets(100, 10, 10, 10));
         
-        Canvas fieldCanvas = new Canvas(300, 300);
+        Canvas fieldCanvas = new Canvas(350, 350);
         drawMineField(fieldCanvas, logic);
         Label label = new Label("");
         Font font = new Font(20);
         label.setFont(font);
-        Timer gameTimer = new Timer(); //To do: reset timer for every game
+        Timer gameTimer = new Timer(); 
          
         easy.setOnAction((event) -> {
             logic = new MiinaharavaLogic(10, 10, 20);
             difficulty.setText("Valittu: Helppo");
+            
+            
         });
                
         normal.setOnAction((event) -> {
            logic = new MiinaharavaLogic(16, 16, 40);
            difficulty.setText("Valittu: Normaali");
+           
         });
         
         hard.setOnAction((event) -> {
@@ -106,6 +109,8 @@ public class MiinaharavaUi extends Application {
             drawMineField(fieldCanvas, logic);
             label.setText("Game is on!");
             stage.setScene(gameScene);
+            gameTimer.start();
+            
         });
         
         
@@ -123,12 +128,12 @@ public class MiinaharavaUi extends Application {
             
             if (logic.isVictory()) {
                 label.setText("VOITIT! JEE");
-                Timer.stop();
+                gameTimer.stop();
                 
                 
             } else if (logic.isLost()) {
                 label.setText("HÄVISIT!");
-                Timer.stop();
+                gameTimer.stop();
                 
             }
         });
@@ -144,6 +149,7 @@ public class MiinaharavaUi extends Application {
         BorderPane.setMargin(gameTimer,new Insets(20, 40, 10, 40) );
         backButton.setOnAction((event) -> {
             stage.setScene(menuScene);
+            gameTimer.stop();
         });
         
         gameScene = new Scene(gamePane);
@@ -158,7 +164,7 @@ public class MiinaharavaUi extends Application {
         launch(MiinaharavaUi.class);
     }
     private int locationInGrid(Double locationInCanvas, Double canvasSize, int gridSize) {
-        double threshold = 0.5;
+        double threshold = 0.1;
         long location = Math.round(
                 (locationInCanvas / canvasSize) * (gridSize - 1) - threshold
         );

@@ -18,7 +18,13 @@ public class Timer extends Pane {
     
 
     public Timer() {
-        getChildren().add(currentTime);
+        
+        getChildren().add(currentTime); 
+    }
+    
+    public void start() {
+        
+        seconds = 0;
         timer = new Timeline();
         timer.setCycleCount(Animation.INDEFINITE);
         timer.getKeyFrames().add(new KeyFrame(Duration.seconds(1), e -> {
@@ -26,19 +32,19 @@ public class Timer extends Pane {
             changeCurrentTime();
         }));
         timer.play();
-    
     }
+    
 
     private void changeCurrentTime() {
         DecimalFormat df = new DecimalFormat("00");
         currentTime.setText(df.format(seconds));
     }
 
-    public static String getCurrentTime() {
+    public String getCurrentTime() {
         return currentTime.getText();
     }
 
-    public static void stop() {
+    public void stop() {
         timer.stop();
     }
     
