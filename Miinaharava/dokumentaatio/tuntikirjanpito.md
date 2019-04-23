@@ -16,5 +16,5 @@ Päivä | Tunnit | Mitä tein
 15.4. |2 | Vaikeustason valinta nappien avulla. Kokeilin esin choiceBoxia, mutta en saanut sitä toimimaan.
 16.4. | 2 | Ajastimen koodausta, eri vaihtoehtojen testailua
 16.4. | 3 | Epäiltyjen miinojen merkitseminen punaisella, testien kirjoittaminen, releasen teko, checkstyle tarkastus
-
-Tuntien summa : 36
+23.4 | 3.5 | Käyttöohje, hiukan ruudukon koon säätämistä, ajastimen laittaminen kuntoon
+Tuntien summa : 39.5
