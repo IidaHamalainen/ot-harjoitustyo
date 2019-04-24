@@ -17,6 +17,6 @@ Päivä | Tunnit | Mitä tein
 16.4. | 2 | Ajastimen koodausta, eri vaihtoehtojen testailua
 16.4. | 3 | Epäiltyjen miinojen merkitseminen punaisella, testien kirjoittaminen, releasen teko, checkstyle tarkastus
 23.4 | 3.5 | Käyttöohje, hiukan ruudukon koon säätämistä, ajastimen laittaminen kuntoon
-24.4. |3 | Yritys saada UI jaettua eri luokkiin, ja saada peliajat tallennettua ja listattua. Kumpikaan ei toiminut.
+24.4. | 5 | Yritys saada UI jaettua eri luokkiin, ja saada peliajat tallennettua ja listattua. Kumpikaan ei toiminut.
 
 Tuntien summa : 42.5
