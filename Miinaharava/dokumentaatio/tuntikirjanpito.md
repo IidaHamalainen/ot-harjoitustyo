@@ -19,4 +19,4 @@ Päivä | Tunnit | Mitä tein
 23.4 | 3.5 | Käyttöohje, hiukan ruudukon koon säätämistä, ajastimen laittaminen kuntoon
 24.4. | 5 | Yritys saada UI jaettua eri luokkiin, ja saada peliajat tallennettua ja listattua. Kumpikaan ei toiminut.
 
-Tuntien summa : 42.5
+Tuntien summa : 44.5
