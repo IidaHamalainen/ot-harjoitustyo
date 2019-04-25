@@ -1,6 +1,8 @@
 package miinaharava.model;
 
-
+/**
+ * Class responsible for single tile and it's functions
+ */
 public class Tile {
     
     private boolean mine; //false: no mine
@@ -22,10 +24,17 @@ public class Tile {
     public boolean hasMine() {
         return mine == true;
     }
-    
+    /**
+     * Check if tile is opened
+     * @return true if tile is opened, false if not opened
+     */
     public boolean tileIsOpen() {
         return visible;
     }
+    /**
+     * Check if tile is flagged
+     * @return true if tile is flagged, otherwise false
+     */
     public boolean isFlagged() {
         return flagged;
     }
@@ -52,6 +61,10 @@ public class Tile {
         return this.minesNear;
     }
 
+    /**
+     * Check if tile has been opened and has mine
+     * @return 
+     */
     public Boolean hasMineSweeped() {
         return this.mine == true && this.visible;
     }

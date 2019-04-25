@@ -11,6 +11,7 @@ public class MiinaharavaLogic {
     public Minefield minefield;
     Boolean win;
     Boolean lost;
+    private int gameTime;
     
     public MiinaharavaLogic(int width, int height, int mines) {
         this.minefield = new Minefield(width, height, mines);
@@ -19,7 +20,7 @@ public class MiinaharavaLogic {
        
     }
     /**
-     * Method to open tile on click. Checks if clicked tile has mine and whether game is running or not.
+     * Method to open tile on click, checks if clicked tile has mine and whether game is running or not.
      * @param x 
      * @param y 
      */
@@ -38,7 +39,9 @@ public class MiinaharavaLogic {
         this.minefield.flag(x, y);
         
     }
-    
+    /**
+     * Checks if game is lost or won
+     */
     public void updateGameStatus() {
         Tile[][] field = minefield.getMinefield();
         Boolean mineSweeped = false;
@@ -54,6 +57,11 @@ public class MiinaharavaLogic {
     public boolean gameRunning() {
         return !(lost || win);
     }
+    /**
+     * Returns X if tile has mine, otherwise returns number
+     * @param tile the tile which is targeted
+     * @return returns the tile symbol
+     */
     public String getTileSymbol(Tile tile) {
         if (tile.getContent() == true) {
             return "X";
@@ -70,6 +78,8 @@ public class MiinaharavaLogic {
        
         return this.lost;
     }
+    
+    
     
     
 }

@@ -5,6 +5,7 @@ import miinaharava.logic.MiinaharavaLogic;
 import miinaharava.model.Minefield;
 import miinaharava.model.Tile;
 import miinaharava.model.Timer;
+import miinaharava.model.GameTime;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,11 +14,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class MiinaharavaTest {
-     MiinaharavaLogic m;
-     Minefield f;
-     Timer t;
-     Tile tile;
-     Tile[][] field;
+    MiinaharavaLogic m;
+    Minefield f;
+    Timer t;
+    Tile tile;
+    Tile[][] field;
 
 
     public MiinaharavaTest() {
@@ -72,6 +73,12 @@ public class MiinaharavaTest {
         Tile[][] field = m.minefield.getMinefield();
         Tile tile = field[2][2];
         assertFalse(tile.isFlagged());
+    }
+    @Test
+    public void timerSet() {
+        t = new Timer();
+        String time = t.getCurrentTime();
+        assertEquals(time, "0");
     }
     
    

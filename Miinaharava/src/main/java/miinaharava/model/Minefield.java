@@ -2,6 +2,9 @@ package miinaharava.model;
 
 import java.util.Random;
 
+/**
+ * Creates the class responsible for minefield, eg. game board
+ */
 public class Minefield {
      
     private int mines;
@@ -26,7 +29,9 @@ public class Minefield {
        
         return this.height;
     }
-    
+    /**
+     * Sets mines in random tiles
+     */
     public void initField() {
         Random random = new Random();
         
@@ -42,7 +47,10 @@ public class Minefield {
             }
         }
     }
-    
+    /**
+     * Creates table (field) with safe tiles
+     * @return the field
+     */
     private Tile[][] initTiles() {
         Tile[][] result = new Tile[this.width][this.height];
         
@@ -54,7 +62,7 @@ public class Minefield {
         return result;
     }
     /**
-     * Count mines around the opened tile
+     * Counts mines around the opened tile
      * @param x x-position
      * @param y y-position
      * @return returns the amount of mines
@@ -78,7 +86,11 @@ public class Minefield {
         }       
         return mines;
     }
-    
+    /**
+     * Sets tile open, and checks if it has mine. If there isn't mine, opens surrounding tiles.
+     * @param x
+     * @param y 
+     */
     public void sweep(int x, int y) {
         Tile opened = this.field[x][y];
         
@@ -86,30 +98,37 @@ public class Minefield {
             revealAll();  
         
         } else {
-            opened.setNumber(minesAroundTile(x, y));
-            opened.setOpen();
-          
-            int[] limits = selectAround(x, y);
-            int xMin = limits[0];
-            int xMax = limits[1];
-            int yMin = limits[2];
-            int yMax = limits[3];
-
-            for (int i = xMin; i <= xMax; i++) {
-                for (int j = yMin; j <= yMax; j++) {
-                    
-                    if (!this.field[i][j].hasMine()) { 
-                        this.field[i][j].setOpen();
-                        this.field[i][j].setNumber(minesAroundTile(i, j));
-                                              
-                    }
-
-                }                
-            
-            }
+           opened.setNumber(minesAroundTile(x, y));
+           opened.setOpen();
+           openNeighbours(x, y);
         }
         
         
+    }
+    /**
+     * Opens safe tiles around the tile in x, y coordinate
+     * @param x x-coordinate
+     * @param y y-coordinate
+     */
+    public void openNeighbours(int x, int y) {
+          
+        int[] limits = selectAround(x, y);
+        int xMin = limits[0];
+        int xMax = limits[1];
+        int yMin = limits[2];
+        int yMax = limits[3];
+
+        for (int i = xMin; i <= xMax; i++) {
+            for (int j = yMin; j <= yMax; j++) {
+                    
+                if (!this.field[i][j].hasMine()) { 
+                    this.field[i][j].setOpen();
+                    this.field[i][j].setNumber(minesAroundTile(i, j));                             
+                }
+
+            }                
+            
+        }
     }
    
         
@@ -122,7 +141,9 @@ public class Minefield {
         Tile flagged = this.field[x][y];
         flagged.setFlag();
     }
-    
+    /**
+     * sets all tiles open
+     */
     public void revealAll() {
         for (int i = 0; i < this.field.length; i++) {
             for (int j = 0; j < this.field[0].length; j++) {
@@ -130,7 +151,12 @@ public class Minefield {
             }
         }
     }
-    
+    /**
+     * Goes through tile which coordinates are given in params
+     * @param x
+     * @param y
+     * @return 
+     */
     private int[] selectAround(int x, int y) {
         int xMin = Math.max(0, x - 1);
         int xMax = Math.min(this.width - 1, x + 1);
@@ -146,7 +172,7 @@ public class Minefield {
     }   
     /**
      * counts opened tiles, and if all safe tiles have been opened, sets victory to be true
-     * @return 
+     * @return true if all safe tiles have been opened
      */
     public boolean isVictory() {
         int tile = 0;
@@ -162,9 +188,7 @@ public class Minefield {
         }
         if (tile == safeTiles) {
             victory = true;
-        }
-        
-        
+        }   
         return victory;
     
     }

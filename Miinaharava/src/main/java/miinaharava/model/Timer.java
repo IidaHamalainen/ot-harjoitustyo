@@ -10,25 +10,28 @@ import javafx.animation.Timeline;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import miinaharava.dao.TimeDao;
 
-
+/**
+* Class to create timer
+*/
 public class Timer extends Pane {
   
     private static Label currentTime = new Label();
-    private int seconds = 0;
+    private int seconds;
     private static Timeline timer;
     private String endTime;
-    private List<String> times;
+    private TimeDao timeDao;
     
-    /**
-     * Class to create timer
-     */
+    
     public Timer() {
-        
+        seconds = 0;
         getChildren().add(currentTime); 
-        times = new ArrayList<>();
+        
     }
-    
+    /**
+     * Starts the timer from 0 in every new game
+     */
     public void start() {
         
         seconds = 0;
@@ -41,8 +44,10 @@ public class Timer extends Pane {
         timer.play();
     }
     
-
-    private void changeCurrentTime() {
+    /**
+     * Changes the seconds in timer
+     */
+    public void changeCurrentTime() {
         DecimalFormat df = new DecimalFormat("00");
         currentTime.setText(df.format(seconds));
     }
@@ -50,21 +55,31 @@ public class Timer extends Pane {
     public String getCurrentTime() {
         return currentTime.getText();
     }
-
+    /**
+     * Stops the timer and saves end time to GameTime object
+     */
     public void stop() {
         timer.stop();
         endTime = currentTime.getText();
+        createGameTime();
         
     }
     public String getEndTime() {
         return endTime;
     }
-    public void addTime() {
-        times.add(endTime);
+    /**
+     * Creates new GameTimer for time saving purpose 
+     */
+    public void createGameTime() {
+        GameTime gameTime = new GameTime(endTime);
+        try {
+            timeDao.create(gameTime);
+            
+        } catch(Exception e) {
+            
+        }
     }
-    public List<String> getTimes() {
-        return times;
-    }
+
     
 }
     

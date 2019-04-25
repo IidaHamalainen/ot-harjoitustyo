@@ -1,20 +1,19 @@
 
 package miinaharava.ui;
 
+import java.io.FileInputStream;
+import java.util.List;
+import java.util.Properties;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -24,10 +23,16 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import miinaharava.dao.FileTimeDao;
+import miinaharava.dao.TimeDao;
 import miinaharava.logic.MiinaharavaLogic;
+import miinaharava.model.GameTime;
 import miinaharava.model.Tile;
 import miinaharava.model.Timer;
 
+/**
+ * Class responsible for User Interface
+ */
 public class MiinaharavaUi extends Application {
     
     
@@ -35,8 +40,31 @@ public class MiinaharavaUi extends Application {
     private Scene gameScene;
     private MiinaharavaLogic logic;
     private Timer gameTimer;
+    private VBox timeNodes;
+    private TimeDao timeDao;
+    private GameTime gameTime;
     
-    
+    @Override
+    public void init() throws Exception {
+        Properties properties = new Properties();
+        properties.load(new FileInputStream("config.properties"));
+        String timeFile = properties.getProperty("timeFile");
+        FileTimeDao timeDao = new FileTimeDao(timeFile);
+        
+    }
+    public  Node createTimeNode(GameTime time) {
+        VBox box = new VBox(10);
+        Label label = new Label(time.getTime());
+        box.getChildren().addAll(label);
+        return box;
+    } 
+    public void redrawTimelist() {
+        timeNodes.getChildren().clear();
+        List<GameTime> times = timeDao.getAll();
+        times.forEach(time->{
+            timeNodes.getChildren().add(createTimeNode(time));
+        });
+    }
 
     @Override
     public void start(Stage stage) {
@@ -69,6 +97,10 @@ public class MiinaharavaUi extends Application {
         
         VBox results = new VBox();
         results.getChildren().add(new Label("Tulokset"));
+        
+        timeNodes = new VBox(10);
+        
+        results.getChildren().add(timeNodes);
       
         
         menuPane.setTop(title);
@@ -134,7 +166,7 @@ public class MiinaharavaUi extends Application {
             } else if (logic.isLost()) {
                 label.setText("HÄVISIT!");
                 gameTimer.stop();
-                gameTimer.addTime(); 
+                
                 
             }
         });
