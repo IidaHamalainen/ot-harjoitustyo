@@ -18,5 +18,7 @@ Päivä | Tunnit | Mitä tein
 16.4. | 3 | Epäiltyjen miinojen merkitseminen punaisella, testien kirjoittaminen, releasen teko, checkstyle tarkastus
 23.4 | 3.5 | Käyttöohje, hiukan ruudukon koon säätämistä, ajastimen laittaminen kuntoon
 24.4. | 5 | Yritys saada UI jaettua eri luokkiin, ja saada peliajat tallennettua ja listattua. Kumpikaan ei toiminut.
+25.4. | 3.5 | Peliaikojen tallennuksen jatkamista. Sain luotua Dao-luokat ilman että sovellus kaatuu,ja peli luo aikatiedoston, en vielä saanut kuitenkaan aikoja listattua valikkonäkymään.
+|| 2 | Koodikatselmointi
 
-Tuntien summa : 44.5
+Tuntien summa : 50
