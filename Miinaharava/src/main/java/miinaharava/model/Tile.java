@@ -7,6 +7,7 @@ public class Tile {
     private boolean visible; //false: not visible
     private String minesNear;
     private boolean flagged;
+  
     
     public Tile() {
         this.mine = false;

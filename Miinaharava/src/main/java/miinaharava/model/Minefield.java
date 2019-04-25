@@ -27,15 +27,11 @@ public class Minefield {
         return this.height;
     }
     
-    
-    //placing mines into field
     public void initField() {
         Random random = new Random();
         
-        //fill field with empty tiles
         this.field = initTiles();
         
-        //add mines
         int mineAmount = 0;
         while (mineAmount < mines) {
             int x = random.nextInt(this.width);
@@ -57,8 +53,12 @@ public class Minefield {
         }
         return result;
     }
-     
-    //counting mines around the tile
+    /**
+     * Count mines around the opened tile
+     * @param x x-position
+     * @param y y-position
+     * @return returns the amount of mines
+     */
     public int minesAroundTile(int x, int y) {
         int mines = 0;
         
@@ -101,7 +101,7 @@ public class Minefield {
                     if (!this.field[i][j].hasMine()) { 
                         this.field[i][j].setOpen();
                         this.field[i][j].setNumber(minesAroundTile(i, j));
-                        
+                                              
                     }
 
                 }                
@@ -111,6 +111,13 @@ public class Minefield {
         
         
     }
+   
+        
+    /**
+     * Sets flag to selected tile
+     * @param x x-coordinate
+     * @param y y-coordinate
+     */
     public void flag(int x, int y) {
         Tile flagged = this.field[x][y];
         flagged.setFlag();
@@ -137,6 +144,10 @@ public class Minefield {
     public Tile[][] getMinefield() {
         return this.field;
     }   
+    /**
+     * counts opened tiles, and if all safe tiles have been opened, sets victory to be true
+     * @return 
+     */
     public boolean isVictory() {
         int tile = 0;
         boolean victory = false;

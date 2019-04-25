@@ -14,6 +14,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -35,12 +36,13 @@ public class MiinaharavaUi extends Application {
     private MiinaharavaLogic logic;
     private Timer gameTimer;
     
-   
+    
 
     @Override
     public void start(Stage stage) {
         
         logic = new MiinaharavaLogic(16, 16, 40);
+        
         
         //menu window
         BorderPane menuPane = new BorderPane();
@@ -67,8 +69,7 @@ public class MiinaharavaUi extends Application {
         
         VBox results = new VBox();
         results.getChildren().add(new Label("Tulokset"));
-        results.getChildren().add(new Label("toteuta listaus tähän"));
-        
+      
         
         menuPane.setTop(title);
         menuPane.setRight(results);
@@ -85,13 +86,12 @@ public class MiinaharavaUi extends Application {
         Label label = new Label("");
         Font font = new Font(20);
         label.setFont(font);
-        Timer gameTimer = new Timer(); 
+        gameTimer = new Timer(); 
          
         easy.setOnAction((event) -> {
             logic = new MiinaharavaLogic(10, 10, 20);
             difficulty.setText("Valittu: Helppo");
-            
-            
+              
         });
                
         normal.setOnAction((event) -> {
@@ -134,6 +134,7 @@ public class MiinaharavaUi extends Application {
             } else if (logic.isLost()) {
                 label.setText("HÄVISIT!");
                 gameTimer.stop();
+                gameTimer.addTime(); 
                 
             }
         });
@@ -163,6 +164,7 @@ public class MiinaharavaUi extends Application {
     public static void main(String[] args) {
         launch(MiinaharavaUi.class);
     }
+    
     private int locationInGrid(Double locationInCanvas, Double canvasSize, int gridSize) {
         double threshold = 0.1;
         long location = Math.round(
@@ -236,12 +238,10 @@ public class MiinaharavaUi extends Application {
         int x = locationInGrid(mouseX, width, fieldWidth);
         int y = locationInGrid(mouseY, height, fieldHeight);
 
-      
         if ((event.getButton().equals(MouseButton.PRIMARY))) {
                 
             logic.sweep(x, y);
         }
-        
         
         if ((event.getButton().equals(MouseButton.SECONDARY))) {
             

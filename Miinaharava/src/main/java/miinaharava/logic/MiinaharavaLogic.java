@@ -4,7 +4,9 @@ package miinaharava.logic;
 import miinaharava.model.Minefield;
 import miinaharava.model.Tile;
 
-
+/**
+ * Class creates the logic by which minesweeper works
+ */
 public class MiinaharavaLogic {
     public Minefield minefield;
     Boolean win;
@@ -16,6 +18,11 @@ public class MiinaharavaLogic {
         this.lost = false;
        
     }
+    /**
+     * Method to open tile on click. Checks if clicked tile has mine and whether game is running or not.
+     * @param x 
+     * @param y 
+     */
     public void sweep(int x, int y) {
         this.minefield.sweep(x, y);
         
@@ -26,6 +33,7 @@ public class MiinaharavaLogic {
             this.minefield.revealAll();
         }
     }
+    
     public void setFlag(int x, int y) {
         this.minefield.flag(x, y);
         
