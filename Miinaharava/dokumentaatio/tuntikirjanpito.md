@@ -20,5 +20,6 @@ Päivä | Tunnit | Mitä tein
 24.4. | 5 | Yritys saada UI jaettua eri luokkiin, ja saada peliajat tallennettua ja listattua. Kumpikaan ei toiminut.
 25.4. | 3.5 | Peliaikojen tallennuksen jatkamista. Sain luotua Dao-luokat ilman että sovellus kaatuu,ja peli luo aikatiedoston, en vielä saanut kuitenkaan aikoja listattua valikkonäkymään.
 || 2 | Koodikatselmointi
+|| 3 | Testien kirjoitusta, Timer luokan siirtäminen Ui pakettiin, checkstyle ja javaDoc valmistelua
 
-Tuntien summa : 50
+Tuntien summa : 53
