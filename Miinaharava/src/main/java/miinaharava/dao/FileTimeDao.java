@@ -22,10 +22,10 @@ public class FileTimeDao implements TimeDao {
         try {
             Scanner reader = new Scanner(new File(file));
             while (reader.hasNextLine()) {
-            String[] parts = reader.nextLine().split("");
-            String time = parts[0]; 
-            GameTime t = new GameTime(time);
-            times.add(t);
+                String[] parts = reader.nextLine().split("");
+                String time = parts[0]; 
+                GameTime t = new GameTime(time);
+                times.add(t);
             }
             
         } catch (Exception e) {

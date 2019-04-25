@@ -98,9 +98,9 @@ public class Minefield {
             revealAll();  
         
         } else {
-           opened.setNumber(minesAroundTile(x, y));
-           opened.setOpen();
-           openNeighbours(x, y);
+            opened.setNumber(minesAroundTile(x, y));
+            opened.setOpen();
+            openNeighbours(x, y);
         }
         
         

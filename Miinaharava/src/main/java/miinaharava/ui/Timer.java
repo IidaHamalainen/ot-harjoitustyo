@@ -74,7 +74,7 @@ public class Timer extends Pane {
         try {
             timeDao.create(gameTime);
             
-        } catch(Exception e) {
+        } catch (Exception e) {
             
         }
     }
