@@ -28,7 +28,7 @@ import miinaharava.dao.TimeDao;
 import miinaharava.logic.MiinaharavaLogic;
 import miinaharava.model.GameTime;
 import miinaharava.model.Tile;
-import miinaharava.model.Timer;
+import miinaharava.ui.Timer;
 
 /**
  * Class responsible for User Interface

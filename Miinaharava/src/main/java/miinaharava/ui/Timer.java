@@ -1,9 +1,7 @@
 
-package miinaharava.model;
+package miinaharava.ui;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -11,9 +9,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import miinaharava.dao.TimeDao;
+import miinaharava.model.GameTime;  
 
 /**
-* Class to create timer
+* Class that creates the timer animation
 */
 public class Timer extends Pane {
   
@@ -82,5 +81,3 @@ public class Timer extends Pane {
 
     
 }
-    
-

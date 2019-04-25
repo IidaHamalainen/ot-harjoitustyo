@@ -1,10 +1,8 @@
 
 
-
 import miinaharava.logic.MiinaharavaLogic;
 import miinaharava.model.Minefield;
 import miinaharava.model.Tile;
-import miinaharava.model.Timer;
 import miinaharava.model.GameTime;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -16,9 +14,9 @@ import static org.junit.Assert.*;
 public class MiinaharavaTest {
     MiinaharavaLogic m;
     Minefield f;
-    Timer t;
     Tile tile;
     Tile[][] field;
+    GameTime time;
 
 
     public MiinaharavaTest() {
@@ -59,6 +57,24 @@ public class MiinaharavaTest {
         assertTrue(tile.isFlagged());
     }
     @Test
+    public void getXSymbolTest() {
+        m = new MiinaharavaLogic(5, 5, 5);
+        Tile tile = new Tile();
+        tile.setMine();
+        String symbol = m.getTileSymbol(tile);
+        assertEquals("X", symbol);
+        
+    }
+    @Test
+    public void getNumberSymbolTest() {
+        m = new MiinaharavaLogic(5, 5, 5);
+        Tile tile = new Tile();
+        tile.setNumber(3);
+        String symbol = m.getTileSymbol(tile);
+        assertEquals(" 3", symbol);
+    }
+    
+    @Test
     public void logicFlagged() {
         m = new MiinaharavaLogic(5, 5, 5);
         m.setFlag(0, 0);
@@ -75,10 +91,16 @@ public class MiinaharavaTest {
         assertFalse(tile.isFlagged());
     }
     @Test
-    public void timerSet() {
-        t = new Timer();
-        String time = t.getCurrentTime();
-        assertEquals(time, "0");
+    public void createGametime() {
+        time = new GameTime("0");
+        assertEquals("0", time.getTime());
+       
+    }
+    @Test
+    public void setTime() {
+        time = new GameTime("0");
+        time.setTime("5");
+        assertEquals("5", time.getTime());
     }
     
    
