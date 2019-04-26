@@ -1,11 +1,11 @@
 # Arkkitehtuurikuvaus
 
 ## Rakenne
-Ohjelma noudattaa komiosaista kerrosarkkitehtuuria:
+Ohjelma noudattaa neliosaista kerrosarkkitehtuuria:
 
 <img src="https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kuvat/miinaharavarakenne.png" width="300">
 
-Pakkaus _miinaharava.ui_ sisältää graafisen käyttöliittymän, _miinaharava.logic_ sovelluslogiikan ja _miinaharava.model_ miinaharavan pelikentän ja yksittäisen ruudun koodin.
+Pakkaus _miinaharava.ui_ sisältää graafisen käyttöliittymän, _miinaharava.logic_ sovelluslogiikan ja _miinaharava.model_ miinaharavan pelikentän ja yksittäisen ruudun koodin. Miinaharava.dao sisältää tiedon tallennuksesta vastaavan koodin.
 
 Luokka/pakkaukaavio:
 
