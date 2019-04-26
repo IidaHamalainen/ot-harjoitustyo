@@ -39,4 +39,11 @@ Checkstyle tarkastukset suoritetaan komennolla
 
 `mvn jxr:jxr checkstyle:checkstyle`
 
-Virheet saa näkyville elaimeen avaamalla tiedoston checkstyle.html target/site - hakemistosta.
+Virheet saa näkyville selaimeen avaamalla tiedoston checkstyle.html target/site - hakemistosta.
+
+### JavaDoc
+JavaDocin saa generoitua komennolla 
+
+`mvn javadoc:javadoc`
+
+JavaDocia voi tarkastella avaamalla selaimessa tiedoston target/site/apidocs/index.html
