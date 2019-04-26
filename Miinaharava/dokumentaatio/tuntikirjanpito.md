@@ -21,5 +21,6 @@ Päivä | Tunnit | Mitä tein
 25.4. | 3.5 | Peliaikojen tallennuksen jatkamista. Sain luotua Dao-luokat ilman että sovellus kaatuu,ja peli luo aikatiedoston, en vielä saanut kuitenkaan aikoja listattua valikkonäkymään.
 || 2 | Koodikatselmointi
 || 3 | Testien kirjoitusta, Timer luokan siirtäminen Ui pakettiin, checkstyle ja javaDoc valmistelua
+26.4. | 1 | Dokumentaatiota
 
-Tuntien summa : 53
+Tuntien summa : 54
