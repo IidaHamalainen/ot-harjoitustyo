@@ -3,7 +3,7 @@
 
 ## Dokumentaatio
 
-[Käyttöohje](https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kayttohje.md)
+[Käyttöohje](https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kayttoohje.md)
 
 [Vaatimusmaarittely](https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/vaatimusmaarittely.md)
 
@@ -13,6 +13,7 @@
 
 ## Releaset
 [viikko5](https://github.com/IidaHamalainen/ot-harjoitustyo/releases)
+[viikko6](https://github.com/IidaHamalainen/ot-harjoitustyo/releases/tag/viikko6)
 
 ## Komentorivitoiminnot
 ### Testaus
