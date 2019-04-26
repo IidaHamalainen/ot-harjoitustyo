@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"miinaharava.dao"},{"l":"miinaharava.logic"},{"l":"miinaharava.model"},{"l":"miinaharava.ui"}]

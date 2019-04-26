@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Minefield.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Miinaharava</a> &gt; <a href="index.source.html" class="el_package">miinaharava.model</a> &gt; <span class="el_source">Minefield.java</span></div><h1>Minefield.java</h1><pre class="source lang-java linenums">package miinaharava.model;
+
+import java.util.Random;
+
+/**
+ * Creates the class responsible for minefield, eg. game board
+ */
+public class Minefield {
+     
+    private int mines;
+    private int width;
+    private int height;
+    private Tile[][] field;
+    
+<span class="fc" id="L15">    public Minefield(int width, int height, int mines) {</span>
+<span class="fc" id="L16">        this.width = width;</span>
+<span class="fc" id="L17">        this.height = height;</span>
+<span class="fc" id="L18">        this.mines = mines;</span>
+        
+<span class="fc" id="L20">        initField();</span>
+<span class="fc" id="L21">    }</span>
+    
+    public int returnWidth() {
+              
+<span class="fc" id="L25">        return this.width;</span>
+    }
+    
+    public int returnHeight() {
+       
+<span class="fc" id="L30">        return this.height;</span>
+    }
+    /**
+     * Sets mines in random tiles
+     */
+    public void initField() {
+<span class="fc" id="L36">        Random random = new Random();</span>
+        
+<span class="fc" id="L38">        this.field = initTiles();</span>
+        
+<span class="fc" id="L40">        int mineAmount = 0;</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        while (mineAmount &lt; mines) {</span>
+<span class="fc" id="L42">            int x = random.nextInt(this.width);</span>
+<span class="fc" id="L43">            int y = random.nextInt(this.height);</span>
+<span class="fc bfc" id="L44" title="All 4 branches covered.">            if (!field[x][y].getContent() == true) { //no mine in tile already</span>
+<span class="fc" id="L45">                this.field[x][y].setMine(); </span>
+<span class="fc" id="L46">                mineAmount++;</span>
+            }
+<span class="fc" id="L48">        }</span>
+<span class="fc" id="L49">    }</span>
+    /**
+     * Creates table (field) with safe tiles
+     * @return the field
+     */
+    private Tile[][] initTiles() {
+<span class="fc" id="L55">        Tile[][] result = new Tile[this.width][this.height];</span>
+        
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        for (int x = 0; x &lt; this.width; x++) {</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">            for (int y = 0; y &lt; this.height; y++) {</span>
+<span class="fc" id="L59">                result[x][y] = new Tile();</span>
+            }
+        }
+<span class="fc" id="L62">        return result;</span>
+    }
+    /**
+     * Counts mines around the opened tile
+     * @param x x-position
+     * @param y y-position
+     * @return returns the amount of mines
+     */
+    public int minesAroundTile(int x, int y) {
+<span class="fc" id="L71">        int mines = 0;</span>
+        
+<span class="fc bfc" id="L73" title="All 2 branches covered.">        for (int xM = -1; xM &lt;= 1; xM++) {</span>
+<span class="pc bpc" id="L74" title="1 of 4 branches missed.">            if (xM + x &lt; 0 || xM + x &gt;= returnWidth()) {</span>
+<span class="nc" id="L75">                continue;</span>
+            }
+
+<span class="fc bfc" id="L78" title="All 2 branches covered.">            for (int yM = -1; yM &lt;= 1; yM++) {</span>
+<span class="pc bpc" id="L79" title="1 of 4 branches missed.">                if (yM + y &lt; 0 || yM + y &gt;= returnHeight()) {</span>
+<span class="nc" id="L80">                    continue;</span>
+                }
+<span class="fc bfc" id="L82" title="All 2 branches covered.">                if (field[xM + x][yM + y].hasMine()) {</span>
+<span class="fc" id="L83">                    mines++;</span>
+                }
+            }
+        }       
+<span class="fc" id="L87">        return mines;</span>
+    }
+    /**
+     * Sets tile open, and checks if it has mine. If there isn't mine, opens surrounding tiles.
+     * @param x
+     * @param y 
+     */
+    public void sweep(int x, int y) {
+<span class="fc" id="L95">        Tile opened = this.field[x][y];</span>
+        
+<span class="fc bfc" id="L97" title="All 2 branches covered.">        if (opened.hasMine()) {</span>
+<span class="fc" id="L98">            revealAll();  </span>
+        
+        } else {
+<span class="fc" id="L101">           opened.setNumber(minesAroundTile(x, y));</span>
+<span class="fc" id="L102">           opened.setOpen();</span>
+<span class="fc" id="L103">           openNeighbours(x, y);</span>
+        }
+        
+        
+<span class="fc" id="L107">    }</span>
+    /**
+     * Opens safe tiles around the tile in x, y coordinate
+     * @param x x-coordinate
+     * @param y y-coordinate
+     */
+    public void openNeighbours(int x, int y) {
+          
+<span class="fc" id="L115">        int[] limits = selectAround(x, y);</span>
+<span class="fc" id="L116">        int xMin = limits[0];</span>
+<span class="fc" id="L117">        int xMax = limits[1];</span>
+<span class="fc" id="L118">        int yMin = limits[2];</span>
+<span class="fc" id="L119">        int yMax = limits[3];</span>
+
+<span class="fc bfc" id="L121" title="All 2 branches covered.">        for (int i = xMin; i &lt;= xMax; i++) {</span>
+<span class="fc bfc" id="L122" title="All 2 branches covered.">            for (int j = yMin; j &lt;= yMax; j++) {</span>
+                    
+<span class="pc bpc" id="L124" title="1 of 2 branches missed.">                if (!this.field[i][j].hasMine()) { </span>
+<span class="fc" id="L125">                    this.field[i][j].setOpen();</span>
+<span class="fc" id="L126">                    this.field[i][j].setNumber(minesAroundTile(i, j));                             </span>
+                }
+
+            }                
+            
+        }
+<span class="fc" id="L132">    }</span>
+   
+        
+    /**
+     * Sets flag to selected tile
+     * @param x x-coordinate
+     * @param y y-coordinate
+     */
+    public void flag(int x, int y) {
+<span class="fc" id="L141">        Tile flagged = this.field[x][y];</span>
+<span class="fc" id="L142">        flagged.setFlag();</span>
+<span class="fc" id="L143">    }</span>
+    /**
+     * sets all tiles open
+     */
+    public void revealAll() {
+<span class="fc bfc" id="L148" title="All 2 branches covered.">        for (int i = 0; i &lt; this.field.length; i++) {</span>
+<span class="fc bfc" id="L149" title="All 2 branches covered.">            for (int j = 0; j &lt; this.field[0].length; j++) {</span>
+<span class="fc" id="L150">                this.field[i][j].setOpen();</span>
+            }
+        }
+<span class="fc" id="L153">    }</span>
+    /**
+     * Goes through tile which coordinates are given in params
+     * @param x
+     * @param y
+     * @return 
+     */
+    private int[] selectAround(int x, int y) {
+<span class="fc" id="L161">        int xMin = Math.max(0, x - 1);</span>
+<span class="fc" id="L162">        int xMax = Math.min(this.width - 1, x + 1);</span>
+
+<span class="fc" id="L164">        int yMin = Math.max(0, y - 1);</span>
+<span class="fc" id="L165">        int yMax = Math.min(this.height - 1, y + 1);</span>
+
+<span class="fc" id="L167">        return new int[]{xMin, xMax, yMin, yMax};</span>
+    }
+    
+    public Tile[][] getMinefield() {
+<span class="fc" id="L171">        return this.field;</span>
+    }   
+    /**
+     * counts opened tiles, and if all safe tiles have been opened, sets victory to be true
+     * @return true if all safe tiles have been opened
+     */
+    public boolean isVictory() {
+<span class="fc" id="L178">        int tile = 0;</span>
+<span class="fc" id="L179">        boolean victory = false;</span>
+<span class="fc" id="L180">        int safeTiles = this.height * this.width - this.mines;</span>
+        
+<span class="fc bfc" id="L182" title="All 2 branches covered.">        for (int i = 0; i &lt; field.length; i++) {</span>
+<span class="fc bfc" id="L183" title="All 2 branches covered.">            for (int j = 0; j &lt; field[0].length; j++) {</span>
+<span class="fc bfc" id="L184" title="All 2 branches covered.">                if (field[i][j].tileIsOpen() == true) {</span>
+<span class="fc" id="L185">                    tile++;</span>
+                }
+            }
+        }
+<span class="pc bpc" id="L189" title="1 of 2 branches missed.">        if (tile == safeTiles) {</span>
+<span class="nc" id="L190">            victory = true;</span>
+        }   
+<span class="fc" id="L192">        return victory;</span>
+    
+    }
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

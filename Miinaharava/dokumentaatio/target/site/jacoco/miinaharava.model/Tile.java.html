@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Tile.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Miinaharava</a> &gt; <a href="index.source.html" class="el_package">miinaharava.model</a> &gt; <span class="el_source">Tile.java</span></div><h1>Tile.java</h1><pre class="source lang-java linenums">package miinaharava.model;
+
+/**
+ * Class responsible for single tile and it's functions
+ */
+public class Tile {
+    
+    private boolean mine; //false: no mine
+    private boolean visible; //false: not visible
+    private String minesNear;
+    private boolean flagged;
+  
+    
+<span class="fc" id="L14">    public Tile() {</span>
+<span class="fc" id="L15">        this.mine = false;</span>
+<span class="fc" id="L16">        this.visible = false;</span>
+<span class="fc" id="L17">        this.minesNear = &quot; &quot;;</span>
+<span class="fc" id="L18">        this.flagged = false;</span>
+        
+<span class="fc" id="L20">    }</span>
+    public boolean getContent() {
+<span class="fc" id="L22">        return mine;</span>
+    }
+    public boolean hasMine() {
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        return mine == true;</span>
+    }
+    /**
+     * Check if tile is opened
+     * @return true if tile is opened, false if not opened
+     */
+    public boolean tileIsOpen() {
+<span class="fc" id="L32">        return visible;</span>
+    }
+    /**
+     * Check if tile is flagged
+     * @return true if tile is flagged, otherwise false
+     */
+    public boolean isFlagged() {
+<span class="fc" id="L39">        return flagged;</span>
+    }
+    
+    public void setOpen() {
+<span class="fc" id="L43">        this.visible = true;</span>
+       
+<span class="fc" id="L45">    }</span>
+    public void setFlag() {
+<span class="fc" id="L47">        this.flagged = true;</span>
+<span class="fc" id="L48">    }</span>
+    
+    public void setMine() {
+<span class="fc" id="L51">        this.mine = true;</span>
+<span class="fc" id="L52">    }</span>
+    
+    public String setNumber(int clue) {
+        
+<span class="fc" id="L56">        this.minesNear = &quot; &quot; + clue;</span>
+        
+<span class="fc" id="L58">        return this.minesNear;</span>
+    }
+    public String getSymbol() {
+<span class="fc" id="L61">        return this.minesNear;</span>
+    }
+
+    /**
+     * Check if tile has been opened and has mine
+     * @return 
+     */
+    public Boolean hasMineSweeped() {
+<span class="pc bpc" id="L69" title="1 of 4 branches missed.">        return this.mine == true &amp;&amp; this.visible;</span>
+    }
+   
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Miinaharava,miinaharava.model,Minefield,4,378,4,40,3,72,4,31,0,13
+Miinaharava,miinaharava.model,Tile,0,66,1,5,0,20,1,13,0,11
+Miinaharava,miinaharava.model,GameTime,0,13,0,0,0,6,0,3,0,3
+Miinaharava,miinaharava.dao,FileTimeDao,92,0,4,0,24,0,6,0,4,0
+Miinaharava,miinaharava.logic,MiinaharavaLogic,8,115,2,16,2,26,3,14,1,7

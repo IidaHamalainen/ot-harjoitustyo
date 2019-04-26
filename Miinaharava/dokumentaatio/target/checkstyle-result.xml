@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.11.2">
+<file name="/home/iida/Documents/Koulu/ot-harjoitustyo/Miinaharava/src/main/java/miinaharava/model/Tile.java">
+</file>
+<file name="/home/iida/Documents/Koulu/ot-harjoitustyo/Miinaharava/src/main/java/miinaharava/model/Minefield.java">
+</file>
+<file name="/home/iida/Documents/Koulu/ot-harjoitustyo/Miinaharava/src/main/java/miinaharava/model/GameTime.java">
+</file>
+<file name="/home/iida/Documents/Koulu/ot-harjoitustyo/Miinaharava/src/main/java/miinaharava/ui/Timer.java">
+</file>
+<file name="/home/iida/Documents/Koulu/ot-harjoitustyo/Miinaharava/src/main/java/miinaharava/ui/MiinaharavaUi.java">
+</file>
+<file name="/home/iida/Documents/Koulu/ot-harjoitustyo/Miinaharava/src/main/java/miinaharava/logic/MiinaharavaLogic.java">
+</file>
+<file name="/home/iida/Documents/Koulu/ot-harjoitustyo/Miinaharava/src/main/java/miinaharava/dao/FileTimeDao.java">
+</file>
+<file name="/home/iida/Documents/Koulu/ot-harjoitustyo/Miinaharava/src/main/java/miinaharava/dao/TimeDao.java">
+</file>
+</checkstyle>
