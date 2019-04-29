@@ -22,5 +22,6 @@ Päivä | Tunnit | Mitä tein
 || 2 | Koodikatselmointi
 || 3 | Testien kirjoitusta, Timer luokan siirtäminen Ui pakettiin, checkstyle ja javaDoc valmistelua
 26.4. | 1 | Dokumentaatiota
+29.4. | 4 | peliaikojen tallentaminen ja näyttäminen valikossa
 
-Tuntien summa : 54
+Tuntien summa : 58
