@@ -1,6 +1,7 @@
 
 package miinaharava.ui;
 
+
 import java.io.FileInputStream;
 import java.util.List;
 import java.util.Properties;
@@ -14,6 +15,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -26,6 +28,7 @@ import javafx.stage.Stage;
 import miinaharava.dao.FileTimeDao;
 import miinaharava.dao.TimeDao;
 import miinaharava.logic.MiinaharavaLogic;
+import miinaharava.logic.TimeService;
 import miinaharava.model.GameTime;
 import miinaharava.model.Tile;
 import miinaharava.ui.Timer;
@@ -41,30 +44,37 @@ public class MiinaharavaUi extends Application {
     private MiinaharavaLogic logic;
     private Timer gameTimer;
     private VBox timeNodes;
-    private TimeDao timeDao;
     private GameTime gameTime;
+    private TimeService timeService;
     
     @Override
     public void init() throws Exception {
         Properties properties = new Properties();
+        
         properties.load(new FileInputStream("config.properties"));
+        
         String timeFile = properties.getProperty("timeFile");
+        
         FileTimeDao timeDao = new FileTimeDao(timeFile);
+        timeService = new TimeService(timeDao);
         
     }
     public  Node createTimeNode(GameTime time) {
         VBox box = new VBox(10);
         Label label = new Label(time.getTime());
-        box.getChildren().addAll(label);
+        box.setPadding(new Insets(0,5,0,5));
+        
+        box.getChildren().add(label);
         return box;
     } 
     public void redrawTimelist() {
         timeNodes.getChildren().clear();
-        List<GameTime> times = timeDao.getAll();
+        
+        List<GameTime> times = timeService.getTimes();
         times.forEach(time->{
             timeNodes.getChildren().add(createTimeNode(time));
         });
-    }
+}
 
     @Override
     public void start(Stage stage) {
@@ -93,24 +103,28 @@ public class MiinaharavaUi extends Application {
         selectLevel.getChildren().add(difficulty);
         selectLevel.getChildren().add(level);
         selectLevel.getChildren().add(startButton);
-
         
-        VBox results = new VBox();
-        results.getChildren().add(new Label("Tulokset"));
+       
+        
+        ScrollPane timeScrollbar = new ScrollPane();
         
         timeNodes = new VBox(10);
+        redrawTimelist();
         
-        results.getChildren().add(timeNodes);
-      
+        timeScrollbar.setContent(timeNodes);
         
+        VBox results = new VBox();
+        results.getChildren().add(new Label("Pelin kesto ja tulos"));
+        results.getChildren().add(timeScrollbar);
+                
         menuPane.setTop(title);
         menuPane.setRight(results);
         menuPane.setCenter(selectLevel);
         
         
         menuPane.setPrefSize(500, 400);
-        BorderPane.setMargin(title, new Insets(10,10,10,50));
-        BorderPane.setMargin(results, new Insets(10,10,10,10));
+        BorderPane.setMargin(results, new Insets(10, 10, 10,10));
+        BorderPane.setMargin(title, new Insets(10, 10, 10, 50));
         BorderPane.setMargin(selectLevel, new Insets(100, 10, 10, 10));
         
         Canvas fieldCanvas = new Canvas(350, 350);
@@ -121,7 +135,7 @@ public class MiinaharavaUi extends Application {
         gameTimer = new Timer(); 
          
         easy.setOnAction((event) -> {
-            logic = new MiinaharavaLogic(10, 10, 20);
+            logic = new MiinaharavaLogic(9, 9, 10);
             difficulty.setText("Valittu: Helppo");
               
         });
@@ -161,11 +175,15 @@ public class MiinaharavaUi extends Application {
             if (logic.isVictory()) {
                 label.setText("VOITIT! JEE");
                 gameTimer.stop();
+                String t = gameTimer.getEndTime();
+                timeService.createTime(t + " voitto");
                 
                 
             } else if (logic.isLost()) {
                 label.setText("HÄVISIT!");
                 gameTimer.stop();
+                String t = gameTimer.getEndTime();
+                timeService.createTime(t + " häviö");
                 
                 
             }
@@ -183,6 +201,7 @@ public class MiinaharavaUi extends Application {
         backButton.setOnAction((event) -> {
             stage.setScene(menuScene);
             gameTimer.stop();
+            redrawTimelist();
         });
         
         gameScene = new Scene(gamePane);

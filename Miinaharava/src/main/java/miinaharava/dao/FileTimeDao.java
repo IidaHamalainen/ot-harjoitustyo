@@ -12,7 +12,7 @@ import miinaharava.model.GameTime;
  */
 public class FileTimeDao implements TimeDao {
     
-    private List<GameTime> times;
+    public List<GameTime> times;
     private String file;
     
     public FileTimeDao(String file) throws Exception {
@@ -21,8 +21,9 @@ public class FileTimeDao implements TimeDao {
         
         try {
             Scanner reader = new Scanner(new File(file));
+            
             while (reader.hasNextLine()) {
-                String[] parts = reader.nextLine().split("");
+                String[] parts = reader.nextLine().split(";");
                 String time = parts[0]; 
                 GameTime t = new GameTime(time);
                 times.add(t);
@@ -37,7 +38,7 @@ public class FileTimeDao implements TimeDao {
     private void save() throws Exception {
         try (FileWriter writer = new FileWriter(new File(file))) {
             for (GameTime time : times) {
-                writer.write(time.getTime());
+                writer.write(time.getTime() + "\n");
             }
         }
     }
@@ -47,6 +48,7 @@ public class FileTimeDao implements TimeDao {
         save();
         return time;
     }
+    
     @Override
     public List<GameTime> getAll() {
         return times;

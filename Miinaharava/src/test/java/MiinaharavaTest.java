@@ -1,9 +1,9 @@
 
 
 import miinaharava.logic.MiinaharavaLogic;
+import miinaharava.model.GameTime;
 import miinaharava.model.Minefield;
 import miinaharava.model.Tile;
-import miinaharava.model.GameTime;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,6 +17,7 @@ public class MiinaharavaTest {
     Tile tile;
     Tile[][] field;
     GameTime time;
+    
 
 
     public MiinaharavaTest() {
@@ -101,7 +102,6 @@ public class MiinaharavaTest {
         time = new GameTime("0");
         time.setTime("5");
         assertEquals("5", time.getTime());
-    }
-    
+}
    
  }
