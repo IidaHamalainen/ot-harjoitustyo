@@ -41,7 +41,7 @@ public class MiinaharavaTest {
         assertFalse(m.gameRunning());
     }
     @Test 
-    public void gameWinTest() {
+    public void gameRunningTest() {
         m = new MiinaharavaLogic(5, 5, 0);
         m.sweep(0, 0);
         assertTrue(m.gameRunning());
