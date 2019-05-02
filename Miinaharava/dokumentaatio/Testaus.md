@@ -18,7 +18,7 @@ Dao-luokkaa TimeDao testataan tilpäistä JUnit TemporaryFolder-rulea ja valekom
 
 Sovelluksen testauksen rivikattavuus on 96% ja haaraumakattavuus 90%.
 Testaamatta jäi tilanteita, joissa metodin käsketään jossain tilanteessa jossa ehdot eivät täyty jatkaa.
-<img src="https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kuvat/testikattavuus.png" width="500">
+<img src="https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kuvat/testikattavuus.png" width="600">
 
 
 Sovellusta on testattu sekä niin että ajat tallentava tiedosto on ollut olemassa, että niin että sovellus on luonut sen itse.
