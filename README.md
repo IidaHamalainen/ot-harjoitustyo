@@ -5,7 +5,7 @@
 
 [Käyttöohje](https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kayttoohje.md)
 
-[Vaatimusmaarittely](https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/vaatimusmaarittely.md)
+[Vaatimusmäärittely](https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/vaatimusmaarittely.md)
 
 [Arkkitehtuurikuvaus](https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/arkkitehtuuri.md)
 
