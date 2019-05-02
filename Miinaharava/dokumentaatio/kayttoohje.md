@@ -1,4 +1,10 @@
 # Käyttöohje
+Lataa tiedosto [miinaharava.jar](https://github.com/IidaHamalainen/ot-harjoitustyo/releases/tag/loppupalautus)
+
+### Konfigurointi
+Ohjelma olettaa, että juurihakemistossa on konfiguraatiotiedosto config.properties, joka määrittelee aikojen tallennukseen käytetyn tiedoston. Tiedoston muoto on seuraava:
+
+`timeFile=times.txt`
 
 ### Ohjelman käynnistäminen
 
@@ -10,9 +16,9 @@ Sovellus aukeaa aloitusvalikkoon. Valikossa voi valita haluamansa vaikeusasteen 
 miinakentän koon painamalla nappia, tällöin teksti nappien yläpuolella kertoo mikä 
 vaikeustaso on valittuna.
 
-<img src="https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kuvat/aloitus1.png" width="400">
+<img src="https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kuvat/valikko.png" width="400">
 
-Oikeassa reunassa on tulosten listaus, josta näkee edellisten pelien keston ja 
+Oikeassa reunassa on tulosten listaus, josta näkee edellisten pelien keston, vaikeustason ja 
 voitettiinko vai hävittiinkö peli.
 
 Peli aloitetaan Aloita- nappia painamalla. Näkymä siirtyy pelitilaan, 
@@ -30,9 +36,12 @@ Numero kertoo, kuinka monta miinaa ruudun naapurissa on. Epäillyn miinan voi me
 punaisella klikkaamalla ruutua hiiren oikealla painikkeella. Jos pelaaja klikkaa auki ruudun, 
 jossa on miina, pelaaja häviää ja kentän yläpuolelle tulee teksti Hävisit! 
 Pelikenttä myös aukeaa paljastaen miinojen sijainnit. 
+
+<img src="https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kuvat/peliloppu1.png" width="400">
+
 Jos pelaaja onnistuu avaamaan kaikki ruudut joissa ei ole miinaa, peli on voitettu,
 ja yläpuolelle tulee voitosta kertova teksti. Pelikentän oikeassa reunassa näkyy sekunteja laskeva ajastin.
 
-<img src="https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kuvat/peliloppu1.png" width="400">
+<img src="https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kuvat/voitto1.png" width="400">
 
 Uuden pelin pääsee aloittamaan palaamalla valikkoon ja valitsemalla haluamansa vaikeustason.
