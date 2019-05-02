@@ -79,19 +79,25 @@ public class MiinaharavaLogic {
     public boolean isLost() {
         return this.lost;
     }
-    
+    /**
+     * creates 9 * 9 minefield with 16 mines
+     */
     public void setEasy() {
         this.minefield = new Minefield(9, 9, 16);
         this.difficulty = "helppo";
     }
-    
+    /**
+     * creates 16 * 16 minefield with 40 mines
+     */
     public void setNormal() {
         this.minefield = new Minefield(16, 16, 40);
         this.difficulty = "normaali";
     }
-    
+    /**
+     * creates 22 * 22 minefield with 60 mines
+     */
     public void setHard() {
-        this.minefield = new Minefield(20, 20, 60);
+        this.minefield = new Minefield(22, 22, 60);
         this.difficulty = "vaikea";
     }
     

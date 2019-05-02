@@ -6,3 +6,4 @@
 01; häviö; helppo
 26; häviö; normaali
 15; häviö; normaali
+42; häviö; vaikea
