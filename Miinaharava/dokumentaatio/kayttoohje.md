@@ -2,7 +2,7 @@
 Lataa tiedosto [miinaharava.jar](https://github.com/IidaHamalainen/ot-harjoitustyo/releases/tag/loppupalautus)
 
 ### Konfigurointi
-Ohjelma olettaa, että juurihakemistossa on konfiguraatiotiedosto config.properties, joka määrittelee aikojen tallennukseen käytetyn tiedoston. Tiedoston muoto on seuraava:
+Ohjelma olettaa, että juurihakemistossa on konfiguraatiotiedosto _config.properties_, joka määrittelee aikojen tallennukseen käytetyn tiedoston. Tiedoston muoto on seuraava:
 
 `timeFile=times.txt`
 
