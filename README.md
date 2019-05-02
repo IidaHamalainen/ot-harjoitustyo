@@ -16,6 +16,8 @@
 
 [viikko6](https://github.com/IidaHamalainen/ot-harjoitustyo/releases/tag/viikko6)
 
+[loppupalautus](https://github.com/IidaHamalainen/ot-harjoitustyo/releases/tag/loppupalautus)
+
 ## Komentorivitoiminnot
 ### Testaus
 Testit suoritetaan komennolla 
