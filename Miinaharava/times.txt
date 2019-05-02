@@ -1,9 +1,2 @@
-01; häviö; helppo
-124; voitto; helppo
-01; häviö; vaikea
-07; häviö; helppo
-09; häviö; normaali
-01; häviö; helppo
-26; häviö; normaali
-15; häviö; normaali
-42; häviö; vaikea
+02; häviö; helppo
+02; häviö; normaali
