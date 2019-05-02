@@ -18,7 +18,7 @@ Miinaharava-pelin toiminnallisuuden luovat miinaharava.domain luokat Tile ja Min
 
 Luokka/pakkaukaavio:
 
-<img src="https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kuvat/luokkapakkauskaavio.png" width="400">
+<img src="https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kuvat/luokkajapakkauskaavio.png" width="400">
 
 ## Tietojen tallennus
 Pakkauksen miinaharava.dao luokka FileTimeDao tallentaa pelin päättymisajan tiedostoon times.txt. Luokka noudattaa DAO-suunnittelumallia. Sovelluksen juureen on sijoitettu konfiguraatiotiedosto config.properties, joka määrittelee tiedoston nimen.
