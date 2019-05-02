@@ -9,6 +9,8 @@
 
 [Arkkitehtuurikuvaus](https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/arkkitehtuuri.md)
 
+[Testausdokumentti](https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/Testaus.md)
+
 [Tuntikirjanpito](https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/tuntikirjanpito.md)
 
 ## Releaset
@@ -35,7 +37,7 @@ Komennolla
 
 `mvn packega`
 
-saa generoitua hakemistoon target jar-tiedoston
+saa generoitua hakemistoon target jar-tiedoston Miinaharava-1.0-SNAPSHOT.jar
 
 
 ### Checkstyle
