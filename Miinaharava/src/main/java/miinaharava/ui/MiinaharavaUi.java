@@ -26,12 +26,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import miinaharava.dao.FileTimeDao;
-import miinaharava.dao.TimeDao;
 import miinaharava.logic.MiinaharavaLogic;
 import miinaharava.logic.TimeService;
 import miinaharava.model.GameTime;
 import miinaharava.model.Tile;
-import miinaharava.ui.Timer;
 
 /**
  * Class responsible for User Interface
@@ -47,6 +45,10 @@ public class MiinaharavaUi extends Application {
     private GameTime gameTime;
     private TimeService timeService;
     
+    /**
+     * initiates the connection to file
+     * @throws Exception 
+     */
     @Override
     public void init() throws Exception {
         Properties properties = new Properties();
@@ -59,6 +61,11 @@ public class MiinaharavaUi extends Application {
         timeService = new TimeService(timeDao);
         
     }
+    /**
+     * Creates new time node and adds it to VBox
+     * @param time the time object
+     * @return created VBox
+     */
     public  Node createTimeNode(GameTime time) {
         VBox box = new VBox(10);
         Label label = new Label(time.getTime());
@@ -67,6 +74,9 @@ public class MiinaharavaUi extends Application {
         box.getChildren().add(label);
         return box;
     } 
+    /**
+     * rewrites the game listing 
+     */
     public void redrawTimelist() {
         timeNodes.getChildren().clear();
         
@@ -85,7 +95,7 @@ public class MiinaharavaUi extends Application {
         //menu window
         BorderPane menuPane = new BorderPane();
         Label title = new Label("Tervetuloa pelaamaan miinaharavaa!");
-        
+       
         Label difficulty = new Label("Valitse vaikeustaso:");
         Button normal = new Button("Normaali");
         Button easy = new Button("Helppo");
@@ -104,7 +114,6 @@ public class MiinaharavaUi extends Application {
         selectLevel.getChildren().add(level);
         selectLevel.getChildren().add(startButton);
         
-       
         
         ScrollPane timeScrollbar = new ScrollPane();
         
@@ -114,7 +123,8 @@ public class MiinaharavaUi extends Application {
         timeScrollbar.setContent(timeNodes);
         
         VBox results = new VBox();
-        results.getChildren().add(new Label("Pelin kesto ja tulos"));
+        results.getChildren().add(new Label("Pelin tulokset"));
+        results.getChildren().add(new Label("kesto; tulos; vaikeus"));
         results.getChildren().add(timeScrollbar);
                 
         menuPane.setTop(title);
@@ -135,19 +145,19 @@ public class MiinaharavaUi extends Application {
         gameTimer = new Timer(); 
          
         easy.setOnAction((event) -> {
-            logic = new MiinaharavaLogic(9, 9, 10);
+            logic.setEasy();
             difficulty.setText("Valittu: Helppo");
               
         });
                
         normal.setOnAction((event) -> {
-           logic = new MiinaharavaLogic(16, 16, 40);
-           difficulty.setText("Valittu: Normaali");
+            logic.setNormal();
+            difficulty.setText("Valittu: Normaali");
            
         });
         
         hard.setOnAction((event) -> {
-            logic = new MiinaharavaLogic(22, 22, 60);
+            logic.setHard();
             difficulty.setText("Valittu: Vaikea");
         });
         
@@ -158,7 +168,6 @@ public class MiinaharavaUi extends Application {
             gameTimer.start();
             
         });
-        
         
         menuScene = new Scene(menuPane);        
         
@@ -176,14 +185,14 @@ public class MiinaharavaUi extends Application {
                 label.setText("VOITIT! JEE");
                 gameTimer.stop();
                 String t = gameTimer.getEndTime();
-                timeService.createTime(t + " voitto");
+                timeService.createTime(t + "; voitto; "  + logic.getDifficulty());
                 
                 
             } else if (logic.isLost()) {
                 label.setText("HÄVISIT!");
                 gameTimer.stop();
                 String t = gameTimer.getEndTime();
-                timeService.createTime(t + " häviö");
+                timeService.createTime(t + "; häviö; " + logic.getDifficulty());
                 
                 
             }
@@ -198,6 +207,7 @@ public class MiinaharavaUi extends Application {
         BorderPane.setMargin(backButton, new Insets(10,10,10,10));
         BorderPane.setMargin(label, new Insets(20, 10, 10, 40));
         BorderPane.setMargin(gameTimer,new Insets(20, 40, 10, 40) );
+        
         backButton.setOnAction((event) -> {
             stage.setScene(menuScene);
             gameTimer.stop();
@@ -250,7 +260,6 @@ public class MiinaharavaUi extends Application {
                     brush.setFill(Color.BLACK);
                     brush.setTextAlign(TextAlignment.CENTER);
                     brush.setTextBaseline(VPos.CENTER);
-                    
 
                     String symbol = logic.getTileSymbol(tile);
 
@@ -299,8 +308,7 @@ public class MiinaharavaUi extends Application {
             logic.setFlag(x, y);
         }
        
-        
-        
+           
     }
     
 }

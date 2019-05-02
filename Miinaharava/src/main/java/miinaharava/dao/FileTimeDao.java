@@ -23,8 +23,7 @@ public class FileTimeDao implements TimeDao {
             Scanner reader = new Scanner(new File(file));
             
             while (reader.hasNextLine()) {
-                String[] parts = reader.nextLine().split(";");
-                String time = parts[0]; 
+                String time = reader.nextLine();
                 GameTime t = new GameTime(time);
                 times.add(t);
             }
@@ -42,6 +41,12 @@ public class FileTimeDao implements TimeDao {
             }
         }
     }
+    /**
+     * Creates new GameTime object and saves time to list
+     * @param time the time, difficulty and result of game
+     * @return returns the time object
+     * @throws Exception 
+     */
     @Override
     public GameTime create(GameTime time) throws Exception {
         times.add(time);

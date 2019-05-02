@@ -18,9 +18,14 @@ public class Tile {
         this.flagged = false;
         
     }
+    /**
+     * returns the content, i.e mine
+     * @return true if tile has mine, false if not
+     */
     public boolean getContent() {
         return mine;
     }
+
     public boolean hasMine() {
         return mine == true;
     }

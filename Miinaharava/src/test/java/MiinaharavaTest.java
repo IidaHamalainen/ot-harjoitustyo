@@ -17,8 +17,6 @@ public class MiinaharavaTest {
     Tile tile;
     Tile[][] field;
     GameTime time;
-    
-
 
     public MiinaharavaTest() {
     } 
@@ -76,7 +74,7 @@ public class MiinaharavaTest {
     }
     
     @Test
-    public void logicFlagged() {
+    public void logicSetslagged() {
         m = new MiinaharavaLogic(5, 5, 5);
         m.setFlag(0, 0);
         Tile[][] field = m.minefield.getMinefield();
@@ -92,16 +90,35 @@ public class MiinaharavaTest {
         assertFalse(tile.isFlagged());
     }
     @Test
-    public void createGametime() {
+    public void createGametimeCorrect() {
         time = new GameTime("0");
         assertEquals("0", time.getTime());
        
     }
     @Test
-    public void setTime() {
+    public void setTimeCorrectly() {
         time = new GameTime("0");
         time.setTime("5");
         assertEquals("5", time.getTime());
-}
+    }
+    @Test
+    public void setEasyCorrectly() {
+        m = new MiinaharavaLogic(10, 10, 10);
+        m.setEasy();
+        assertEquals("helppo", m.getDifficulty());
+          
+    }
+    @Test
+    public void setNormalCorrectly() {
+        m = new MiinaharavaLogic(10, 10, 10);
+        m.setNormal();
+        assertEquals("normaali", m.getDifficulty());
+    }
+    @Test
+    public void setHardCorrectly() {
+        m = new MiinaharavaLogic(10, 10, 10);
+        m.setHard();
+        assertEquals("vaikea", m.getDifficulty());
+    }
    
  }

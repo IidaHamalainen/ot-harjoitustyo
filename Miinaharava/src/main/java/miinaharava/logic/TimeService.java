@@ -4,7 +4,9 @@ package miinaharava.logic;
 import java.util.List;
 import miinaharava.dao.TimeDao;
 import miinaharava.model.GameTime;
-
+/**
+ * Class which handles saving time from UI to DAO
+ */
 
 public class TimeService {
     private TimeDao timeDao;
@@ -13,9 +15,9 @@ public class TimeService {
         this.timeDao = timeDao;
     }
     /**
-     * creating new gametime
-     * @param time the time of created gametime
-     * @return 
+     * creating new entry to times.txt file
+     * @param time the time, result and difficulty of game 
+     * @return true if there are no exceptions
      */
     public boolean createTime(String time) {
         GameTime gameTime = new GameTime(time);

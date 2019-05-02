@@ -11,7 +11,8 @@ public class MiinaharavaLogic {
     public Minefield minefield;
     Boolean win;
     Boolean lost;
-    private int gameTime;
+    private String difficulty;
+    
     
     public MiinaharavaLogic(int width, int height, int mines) {
         this.minefield = new Minefield(width, height, mines);
@@ -21,8 +22,8 @@ public class MiinaharavaLogic {
     }
     /**
      * Method to open tile on click, checks if clicked tile has mine and whether game is running or not.
-     * @param x 
-     * @param y 
+     * @param x coordinate
+     * @param y coordinate
      */
     public void sweep(int x, int y) {
         this.minefield.sweep(x, y);
@@ -70,13 +71,32 @@ public class MiinaharavaLogic {
         }
         return tile.getSymbol() + "";
     }
+    
     public boolean isVictory() {
-       
         return this.minefield.isVictory();
     }
+    
     public boolean isLost() {
-       
         return this.lost;
+    }
+    
+    public void setEasy() {
+        this.minefield = new Minefield(9, 9, 16);
+        this.difficulty = "helppo";
+    }
+    
+    public void setNormal() {
+        this.minefield = new Minefield(16, 16, 40);
+        this.difficulty = "normaali";
+    }
+    
+    public void setHard() {
+        this.minefield = new Minefield(20, 20, 60);
+        this.difficulty = "vaikea";
+    }
+    
+    public String getDifficulty() {
+        return this.difficulty;
     }
     
     

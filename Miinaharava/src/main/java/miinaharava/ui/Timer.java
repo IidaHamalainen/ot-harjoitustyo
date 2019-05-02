@@ -8,9 +8,7 @@ import javafx.animation.Timeline;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
-import miinaharava.model.GameTime;
 import miinaharava.dao.TimeDao;
-import miinaharava.logic.TimeService;
 
 /**
 * Class that creates the timer animation
@@ -22,7 +20,6 @@ public class Timer extends Pane {
     private static Timeline timer;
     private String endTime;
     private TimeDao timeDao;
-    private TimeService timeService;
     
     
     public Timer() {
@@ -57,17 +54,14 @@ public class Timer extends Pane {
         return currentTime.getText();
     }
     /**
-     * Stops the timer and saves end time to GameTime object
+     * Stops the timer and saves end time
      */
     public void stop() {
         timer.stop();
         endTime = currentTime.getText();
         
-        
-        
     }
-    public String getEndTime() {
-        
+    public String getEndTime() {    
         return endTime;
     }
    
