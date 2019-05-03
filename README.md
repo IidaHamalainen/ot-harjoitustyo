@@ -1,5 +1,6 @@
 
 # Miinaharava
+Sovellus on Helsingin yliopiston Ohjelmistotekniikan kurssin harjoitustyö. Kyseessä on Miinaharava-peli, jossa pelaaja yrittää putsata pelikentän osumatta miinoihin.
 
 ## Dokumentaatio
 
