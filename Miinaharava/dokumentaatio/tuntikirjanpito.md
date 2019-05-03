@@ -24,5 +24,6 @@ Päivä | Tunnit | Mitä tein
 26.4. | 1 | Dokumentaatiota
 29.4. | 4 | peliaikojen tallentaminen ja näyttäminen valikossa
 2.5. | 6 | Testejä, dokumentaation päivitystä loppupalautusta varten
+3.5. | 2.5 | Dokumentaation viimeistely
 
-Tuntien summa : 64
+Tuntien summa : 66.5
