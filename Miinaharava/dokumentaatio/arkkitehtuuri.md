@@ -3,7 +3,7 @@
 ## Rakenne
 Ohjelma noudattaa neliosaista kerrosarkkitehtuuria:
 
-<img src="https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kuvat/kerrosarkkitehtuuri.png" width="300">
+<img src="https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kuvat/kerrosarkkitehtuuri.png" width="200">
 
 Pakkaus _miinaharava.ui_ sisältää graafisen käyttöliittymän, _miinaharava.logic_ sovelluslogiikan ja _miinaharava.model_ miinaharavan pelikentän ja yksittäisen ruudun koodin. _miinaharava.dao_ sisältää tiedon tallennuksesta vastaavan koodin.
 
@@ -30,9 +30,14 @@ Pakkauksen miinaharava.dao luokka FileTimeDao tallentaa pelin päättymistiedot 
 ## Päätoiminnallisuudet
 #### Uuden pelin aloittaminen
 
-Kun käyttäjä klikkaa "Aloita" painiketta, käyttöliittymä luo uuden miinakentän drawMineField -metodilla. Metodi kutsuu logiikan kautta Minefield- luokan miinakentän palauttavaa getMinefield metodia. Minefield luokassa alustetaan uusi kenttä initField metodilla. Uusi kenttä näytetään pelinäkymässä stage.setScene(gameScene) metodin asettamana. Samalla sekuntikello käynnistyy gameTimer.start() metdilla.
+Kun käyttäjä klikkaa "Aloita" painiketta, käyttöliittymä luo uuden miinakentän drawMineField -metodilla. Metodi kutsuu logiikan kautta Minefield- luokan miinakentän palauttavaa getMinefield metodia. Minefield luokassa alustetaan uusi kenttä initField metodilla. Uusi kenttä näytetään pelinäkymässä stage.setScene(gameScene) metodin asettamana. Samalla sekuntikello käynnistyy gameTimer.start() metodilla.
 
 <img src="https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kuvat/sekvenssikaavio.png" width="600">
+
+#### Ajan tallentaminen
+Kun käyttäjä klikkaa ruutua ja peli päättyy voittoon tai häviöön, käyttöliittymä kutsuu TimeServicen metodia createtime, joka saa parametrinä pelin keston, vaikeustason ja lopputuloksen. TimeService luo uuden GameTime olion ja tallentaa sen kutsumalla TimeDaon metodia create. Käyttöliittymä päivittää sitten aikojen listauksen redrawTimelist metodilla, kun käyttäjä palaa valikkosivulle.
+
+<img src="https://github.com/IidaHamalainen/ot-harjoitustyo/blob/master/Miinaharava/dokumentaatio/kuvat/sekvenssikaaviotime.png" width="600">
 
 
 ## Ohjelman rakenteeseen jääneet heikkoudet
