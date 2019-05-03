@@ -25,4 +25,4 @@ Sovellusta on testattu sekä niin että ajat tallentava tiedosto on ollut olemas
 
 ### Sovelluksen laatuongelmat
 
-Varsinkin asetuksella helppo (isot ruudut) hiiri on hiukan epätarkka, ja saattaa osoittaa eri ruutuun kuin tarkoitus.
+Varsinkin asetuksella helppo (isot ruudut) hiiri on hiukan epätarkka, ja saattaa osoittaa eri ruutuun kuin tarkoitus. Samoin ruudukon reunimmaisten ruutujen osalla ruudun merkkaaminen eri värillä ei aina toimi halutulla tarkkuudella.
