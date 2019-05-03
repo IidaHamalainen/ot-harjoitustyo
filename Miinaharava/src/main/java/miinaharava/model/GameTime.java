@@ -8,7 +8,6 @@ public class GameTime {
     
     private String time;
     
-    
     public GameTime(String time) {
         this.time = time;
     }

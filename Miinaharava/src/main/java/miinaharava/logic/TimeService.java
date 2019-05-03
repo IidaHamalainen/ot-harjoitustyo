@@ -5,7 +5,7 @@ import java.util.List;
 import miinaharava.dao.TimeDao;
 import miinaharava.model.GameTime;
 /**
- * Class which handles saving time from UI to DAO
+ * Class which handles saving time to DAO
  */
 
 public class TimeService {

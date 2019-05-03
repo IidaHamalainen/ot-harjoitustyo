@@ -1,2 +1,8 @@
 02; häviö; helppo
 02; häviö; normaali
+02; häviö; helppo
+25; häviö; helppo
+184; häviö; normaali
+03; häviö; helppo
+03; häviö; normaali
+285; häviö; normaali

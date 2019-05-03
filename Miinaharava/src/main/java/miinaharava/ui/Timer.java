@@ -8,7 +8,6 @@ import javafx.animation.Timeline;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
-import miinaharava.dao.TimeDao;
 
 /**
 * Class that creates the timer animation
@@ -18,9 +17,7 @@ public class Timer extends Pane {
     private static Label currentTime = new Label();
     private int seconds;
     private static Timeline timer;
-    private String endTime;
-    private TimeDao timeDao;
-    
+    private String endTime; 
     
     public Timer() {
         seconds = 0;

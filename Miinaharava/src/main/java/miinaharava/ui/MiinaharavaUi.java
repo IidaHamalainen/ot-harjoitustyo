@@ -42,7 +42,7 @@ public class MiinaharavaUi extends Application {
     private MiinaharavaLogic logic;
     private Timer gameTimer;
     private VBox timeNodes;
-    private GameTime gameTime;
+
     private TimeService timeService;
     
     /**
