@@ -23,9 +23,9 @@ Luokka/pakkaukaavio:
 ## Tietojen pysyväistallennus
 Pakkauksen miinaharava.dao luokka FileTimeDao tallentaa pelin päättymistiedot tiedostoon times.txt. Luokka noudattaa DAO-suunnittelumallia ja on rajapinnan TimeDao takana. Sovelluksen juureen on sijoitettu konfiguraatiotiedosto _config.properties_, joka määrittelee tiedoston nimen. Ajan eli sekuntien lisäksi tiedostoon tallennetaan pelin tulos ja vaikeustaso puolipisteellä erotettuna muodossa
 
-`234; voitto; helppo
+`234; voitto; helppo`
 
-45, häviö; vaikea`
+`45; häviö; vaikea`
 
 ## Päätoiminnallisuudet
 #### Uuden pelin aloittaminen
